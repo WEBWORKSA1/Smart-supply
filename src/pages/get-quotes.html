@@ -1,0 +1,162 @@
+<!--
+title: Get Free Quotes from Vetted Suppliers — Post an RFQ
+description: Post one free RFQ and receive competing quotes from vetted manufacturers, wholesalers, freight forwarders and 3PLs. Takes 2 minutes. No fees for buyers.
+nav: get-quotes
+noexit: 1
+-->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Home</a> › Get quotes</div>
+    <h1>Get competing quotes. <span class="grad-text">Free.</span></h1>
+    <p>One request → up to 5 matched, vetted suppliers. You compare, negotiate and decide. Buyers never pay.</p>
+    <div class="trust-row"><span>2-minute form</span><span>Autosaves as you type</span><span>Shared only with your consent</span><span>Target reply in 48h</span></div>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="container" data-tabs>
+    <div class="tabs" role="tablist">
+      <button class="on" data-tab="rfq" role="tab" aria-selected="true">🏭 Product RFQ</button>
+      <button data-tab="freight" role="tab" aria-selected="false">🚢 Freight &amp; 3PL</button>
+      <button data-tab="advisor" role="tab" aria-selected="false">💻 Software advisor</button>
+    </div>
+
+    <div class="tab-panel on" id="rfq">
+      <div class="wizard">
+        <div class="progress" aria-hidden="true"><i></i></div>
+        <div class="steps-labels"><span class="on">1. What you need</span><span>2. Delivery</span><span>3. About you</span><span>4. Review</span></div>
+        <form id="rfq-wizard" class="card" data-form="rfq-product">
+          <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+          <input type="hidden" name="supplier" id="rfq-supplier">
+          <div class="step on">
+            <h2>What are you sourcing?</h2>
+            <div class="form-grid">
+              <div class="field"><label for="r-cat">Category <span class="req">*</span></label><select id="r-cat" name="category" required><option value="">Select…</option><option value="electronics">Electronics &amp; components</option><option value="packaging">Packaging &amp; labels</option><option value="apparel">Apparel &amp; textiles</option><option value="machinery">Industrial machinery</option><option value="metals">Metals &amp; fabrication</option><option value="plastics">Plastics &amp; molding</option><option value="food">Food &amp; beverage</option><option value="health">Health &amp; beauty</option><option value="furniture">Furniture &amp; home</option><option value="auto">Automotive parts</option><option value="chemicals">Chemicals &amp; materials</option><option value="logistics">3PL / freight / customs</option><option value="other">Other</option></select><span class="err"></span></div>
+              <div class="field"><label for="r-product">Product name <span class="req">*</span></label><input id="r-product" name="product" required placeholder="e.g. Kraft mailer box, printed 1 color"><span class="err"></span></div>
+              <div class="field full"><label for="r-specs">Specifications &amp; requirements</label><textarea id="r-specs" name="specs" placeholder="Materials, dimensions, finish, packaging, drawings link, samples needed…"></textarea></div>
+              <div class="field"><label for="r-qty">Quantity <span class="req">*</span></label><input id="r-qty" name="quantity" required inputmode="numeric" placeholder="5000"><span class="err"></span></div>
+              <div class="field"><label for="r-unit">Unit</label><select id="r-unit" name="unit"><option>pieces</option><option>sets</option><option>cartons</option><option>kg</option><option>tonnes</option><option>meters</option><option>containers</option></select></div>
+              <div class="field"><label for="r-price">Target unit price (USD)</label><input id="r-price" name="target_price" inputmode="decimal" placeholder="0.85"></div>
+              <div class="field"><label for="r-freq">Order frequency</label><select id="r-freq" name="frequency"><option>One-time</option><option>Monthly</option><option>Quarterly</option><option>Annual contract</option></select></div>
+              <div class="field full"><label>Required certifications</label>
+                <div class="checks">
+                  <label class="check-pill"><input type="checkbox" name="certifications" value="ISO 9001"><span>ISO 9001</span></label>
+                  <label class="check-pill"><input type="checkbox" name="certifications" value="ISO 14001"><span>ISO 14001</span></label>
+                  <label class="check-pill"><input type="checkbox" name="certifications" value="FSC"><span>FSC</span></label>
+                  <label class="check-pill"><input type="checkbox" name="certifications" value="CE / UL"><span>CE / UL</span></label>
+                  <label class="check-pill"><input type="checkbox" name="certifications" value="FDA"><span>FDA</span></label>
+                  <label class="check-pill"><input type="checkbox" name="certifications" value="BSCI / SEDEX"><span>BSCI / SEDEX</span></label>
+                  <label class="check-pill"><input type="checkbox" name="certifications" value="OEKO-TEX / GOTS"><span>OEKO-TEX / GOTS</span></label>
+                  <label class="check-pill"><input type="checkbox" name="certifications" value="IATF 16949"><span>IATF 16949</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <h2>Delivery &amp; terms</h2>
+            <div class="form-grid">
+              <div class="field"><label for="r-dest">Destination country <span class="req">*</span></label><input id="r-dest" name="destination" required placeholder="e.g. United States" list="countries"><span class="err"></span></div>
+              <div class="field"><label for="r-date">Needed by</label><input id="r-date" type="date" name="needed_by"></div>
+              <div class="field"><label for="r-inco">Preferred Incoterm</label><select id="r-inco" name="incoterm"><option value="">Not sure — advise me</option><option>EXW</option><option>FCA</option><option>FOB</option><option>CIF</option><option>DAP</option><option>DDP</option></select><span class="small muted"><a href="guides/incoterms-2020-explained.html" target="_blank">What's this?</a></span></div>
+              <div class="field"><label for="r-mode">Shipping mode</label><select id="r-mode" name="mode"><option value="">Any</option><option>Ocean FCL</option><option>Ocean LCL</option><option>Air freight</option><option>Express courier</option><option>Road / rail</option></select></div>
+              <div class="field full"><label for="r-origin">Preferred sourcing regions</label><select id="r-origin" name="origin_pref"><option>No preference — best value</option><option>Nearshore (close to me)</option><option>Domestic only</option><option>China</option><option>India</option><option>Vietnam / SE Asia</option><option>Mexico / LatAm</option><option>Europe</option></select></div>
+            </div>
+            <datalist id="countries"><option>United States</option><option>Canada</option><option>United Kingdom</option><option>Germany</option><option>France</option><option>Australia</option><option>India</option><option>United Arab Emirates</option><option>Mexico</option><option>Brazil</option><option>Netherlands</option><option>Singapore</option><option>Japan</option><option>South Africa</option></datalist>
+          </div>
+          <div class="step">
+            <h2>Where should quotes go?</h2>
+            <div class="form-grid">
+              <div class="field"><label for="r-name">Full name <span class="req">*</span></label><input id="r-name" name="name" required autocomplete="name"><span class="err"></span></div>
+              <div class="field"><label for="r-email">Work email <span class="req">*</span></label><input id="r-email" type="email" name="email" required autocomplete="email"><span class="err"></span></div>
+              <div class="field"><label for="r-company">Company <span class="req">*</span></label><input id="r-company" name="company" required autocomplete="organization"><span class="err"></span></div>
+              <div class="field"><label for="r-phone">Phone / WhatsApp</label><input id="r-phone" type="tel" name="phone" autocomplete="tel" placeholder="+1 555 123 4567"></div>
+              <div class="field"><label for="r-role">Your role</label><select id="r-role" name="role"><option>Owner / founder</option><option>Procurement / purchasing</option><option>Operations / supply chain</option><option>Product / engineering</option><option>Other</option></select></div>
+              <div class="field"><label for="r-size">Company size</label><select id="r-size" name="company_size"><option>1–10</option><option>11–50</option><option>51–200</option><option>201–1000</option><option>1000+</option></select></div>
+              <div class="field full"><label for="r-budget">Estimated order budget</label><select id="r-budget" name="budget"><option>Under $5k</option><option>$5k – $25k</option><option>$25k – $100k</option><option>$100k – $500k</option><option>$500k+</option></select></div>
+            </div>
+          </div>
+          <div class="step">
+            <h2>Review &amp; submit</h2>
+            <dl class="review-list" id="rfq-review"></dl>
+            <label class="consent mt2"><input type="checkbox" name="consent_share" value="yes" required> I agree to share this request with up to 5 matched, vetted suppliers and accept the <a href="privacy.html" target="_blank">privacy policy</a>.</label>
+            <label class="consent mt1"><input type="checkbox" name="consent_news" value="yes"> Also send me the weekly Smart Supply Brief.</label>
+          </div>
+          <div class="wizard-nav">
+            <button type="button" class="btn btn-ghost" data-prev>← Back</button>
+            <span></span>
+            <button type="button" class="btn btn-primary" data-next>Continue →</button>
+            <button type="submit" class="btn btn-accent hidden" data-submit>Submit RFQ — get quotes</button>
+          </div>
+        </form>
+        <div id="rfq-success" class="card success-box hidden">
+          <div class="big">✅</div>
+          <h2>RFQ received — reference <span id="rfq-ref" class="grad-text"></span></h2>
+          <p class="muted">We're matching your request with suppliers now. Expect the first responses by email within 48 business hours.</p>
+          <div class="grid g3 mt2" style="text-align:left">
+            <a class="card card-link" href="tools.html#tool-lc"><b>🧾 Prepare:</b> calculate landed cost to compare quotes fairly.</a>
+            <a class="card card-link" href="guides/how-to-vet-a-supplier.html"><b>🔍 Vet:</b> the 10-point supplier due-diligence checklist.</a>
+            <a class="card card-link" href="#advisor" onclick="document.querySelector('[data-tab=advisor]').click()"><b>💻 Upgrade:</b> free 15-min software advisor call.</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="freight">
+      <div class="grid split">
+        <form class="card" data-form="rfq-freight" data-success="freight-success">
+          <h2>Freight &amp; fulfillment quote</h2>
+          <p class="muted">Ocean, air, trucking, customs and 3PL warehousing — compared by our logistics partners.</p>
+          <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+          <div class="form-grid">
+            <div class="field"><label for="f-svc">Service <span class="req">*</span></label><select id="f-svc" name="service" required><option value="">Select…</option><option>Ocean FCL</option><option>Ocean LCL</option><option>Air freight</option><option>FTL trucking</option><option>LTL trucking</option><option>Customs brokerage</option><option>3PL warehousing &amp; fulfillment</option></select><span class="err"></span></div>
+            <div class="field"><label for="f-cargo">Cargo type</label><select id="f-cargo" name="cargo"><option>General cargo</option><option>Hazardous (DG)</option><option>Temperature-controlled</option><option>Oversized</option><option>E-commerce parcels</option></select></div>
+            <div class="field"><label for="f-from">Origin (city, country) <span class="req">*</span></label><input id="f-from" name="origin" required><span class="err"></span></div>
+            <div class="field"><label for="f-to">Destination (city, country) <span class="req">*</span></label><input id="f-to" name="destination" required><span class="err"></span></div>
+            <div class="field"><label for="f-wt">Total weight (kg)</label><input id="f-wt" name="weight_kg" inputmode="decimal"></div>
+            <div class="field"><label for="f-vol">Volume (CBM) / pallets</label><input id="f-vol" name="volume" placeholder="e.g. 12 CBM or 8 pallets"></div>
+            <div class="field"><label for="f-ready">Cargo ready date</label><input id="f-ready" type="date" name="ready_date"></div>
+            <div class="field"><label for="f-freq">Shipments per month</label><select id="f-freq" name="frequency"><option>One-off</option><option>1–5</option><option>6–20</option><option>20+</option></select></div>
+            <div class="field"><label for="f-name">Name <span class="req">*</span></label><input id="f-name" name="name" required><span class="err"></span></div>
+            <div class="field"><label for="f-email">Work email <span class="req">*</span></label><input id="f-email" type="email" name="email" required><span class="err"></span></div>
+            <div class="field"><label for="f-company">Company</label><input id="f-company" name="company"></div>
+            <div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" name="phone"></div>
+          </div>
+          <label class="consent mt2"><input type="checkbox" name="consent" required> Share my request with matched logistics providers.</label>
+          <button class="btn btn-accent btn-lg mt2" type="submit">Get freight quotes</button>
+        </form>
+        <div>
+          <div id="freight-success" class="card success-box hidden"><div class="big">🚢</div><h3>Request received</h3><p class="muted mb0">Logistics partners will reply with rates and transit times.</p></div>
+          <div class="card"><h3>Before you ship</h3><ul class="small" style="padding-left:1.1em"><li><a href="tools.html#tool-cbm">CBM &amp; container fit</a></li><li><a href="tools.html#tool-vol">Chargeable weight</a></li><li><a href="tools.html#tool-lc">Landed cost</a></li><li><a href="guides/incoterms-2020-explained.html">Incoterms 2020</a></li></ul></div>
+          <div class="ad-slot ad-sidebar" data-ad="sidebar" style="padding:0"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="advisor">
+      <div class="grid g2" style="align-items:start">
+        <div>
+          <span class="eyebrow">Free 15-minute match call</span>
+          <h2 class="mt1">Find the right supply-chain software — without 12 sales demos.</h2>
+          <p class="muted">Tell us your needs. We shortlist 3 best-fit ERP, WMS, TMS, procurement or planning tools with pricing ranges, and introduce you only to the vendors you pick.</p>
+          <ul><li>Unbiased shortlist in 24h</li><li>Pricing ranges up front</li><li>Only the demos you want</li></ul>
+          <a class="btn btn-ghost" href="software.html">Browse the software directory</a>
+        </div>
+        <form class="card" data-form="software-advisor" data-success="advisor-success">
+          <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+          <div class="form-grid">
+            <div class="field"><label for="a-cat">Software type <span class="req">*</span></label><select id="a-cat" name="software_type" required><option value="">Select…</option><option>ERP</option><option>Inventory management</option><option>WMS</option><option>TMS</option><option>Procurement / source-to-pay</option><option>Demand &amp; supply planning</option><option>Shipment visibility</option><option>Not sure</option></select><span class="err"></span></div>
+            <div class="field"><label for="a-users">Number of users</label><select id="a-users" name="users"><option>1–5</option><option>6–25</option><option>26–100</option><option>100+</option></select></div>
+            <div class="field"><label for="a-budget">Annual budget</label><select id="a-budget" name="budget"><option>Under $5k</option><option>$5k–$25k</option><option>$25k–$100k</option><option>$100k+</option><option>Not sure</option></select></div>
+            <div class="field"><label for="a-time">Timeline</label><select id="a-time" name="timeline"><option>ASAP</option><option>1–3 months</option><option>3–6 months</option><option>Researching</option></select></div>
+            <div class="field full"><label for="advisor-tools">Tools you're considering / using</label><input id="advisor-tools" name="considering" placeholder="e.g. NetSuite, spreadsheets"></div>
+            <div class="field"><label for="a-name">Name <span class="req">*</span></label><input id="a-name" name="name" required><span class="err"></span></div>
+            <div class="field"><label for="a-email">Work email <span class="req">*</span></label><input id="a-email" type="email" name="email" required><span class="err"></span></div>
+            <div class="field full"><label for="a-company">Company</label><input id="a-company" name="company"></div>
+          </div>
+          <button class="btn btn-accent btn-block mt2" type="submit">Book my free match call</button>
+        </form>
+        <div id="advisor-success" class="card success-box hidden"><div class="big">📅</div><h3>Thanks — we'll email you a time slot.</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
