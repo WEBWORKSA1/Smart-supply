@@ -1,0 +1,175 @@
+<!--
+title: 9 Free Supply Chain Calculators — EOQ, Safety Stock, Landed Cost, CBM
+description: Free supply chain and logistics calculators: EOQ, safety stock, reorder point, landed cost, CBM container load, chargeable weight, inventory turnover, CO2 emissions and supplier scorecard.
+nav: tools
+-->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Home</a> › Tools</div>
+    <h1>Free supply-chain <span class="grad-text">calculators</span></h1>
+    <p>Instant results, formulas shown, shareable links. Built for buyers, planners and logistics teams.</p>
+    <nav class="tool-nav mt2" aria-label="Calculators">
+      <a href="#tool-eoq">EOQ</a><a href="#tool-ss">Safety stock</a><a href="#tool-rop">Reorder point</a><a href="#tool-lc">Landed cost</a><a href="#tool-cbm">CBM / container</a><a href="#tool-vol">Chargeable weight</a><a href="#tool-turn">Inventory turnover</a><a href="#tool-co2">CO₂ emissions</a><a href="#tool-score">Supplier scorecard</a>
+    </nav>
+  </div>
+</section>
+
+<section class="section-sm"><div class="container grid" style="gap:36px">
+
+<article class="card tool" id="tool-eoq">
+  <h2>📐 Economic Order Quantity (EOQ)</h2>
+  <p class="muted">Balances ordering cost against holding cost to find the cheapest order size.</p>
+  <div class="tool-body">
+    <div class="grid">
+      <div class="field"><label for="eoq-d">Annual demand (units)</label><input id="eoq-d" type="number" min="0" value="12000"></div>
+      <div class="field"><label for="eoq-s">Cost per order ($)</label><input id="eoq-s" type="number" min="0" value="75"></div>
+      <div class="field"><label for="eoq-h">Holding cost per unit per year ($)</label><input id="eoq-h" type="number" min="0" step="0.01" value="2.5"></div>
+      <div class="formula">EOQ = √(2 × D × S ÷ H)</div>
+    </div>
+    <div><div class="result" id="eoq-out"></div><button class="btn btn-ghost btn-sm mt1" data-share>🔗 Share result</button></div>
+  </div>
+</article>
+
+<article class="card tool" id="tool-ss">
+  <h2>🛡️ Safety Stock</h2>
+  <p class="muted">Accounts for both demand and lead-time variability at your target service level.</p>
+  <div class="tool-body">
+    <div class="grid">
+      <div class="field"><label for="ss-sl">Service level</label><select id="ss-sl"><option>80</option><option>85</option><option>90</option><option selected>95</option><option>97</option><option>98</option><option>99</option><option>99.9</option></select></div>
+      <div class="form-grid">
+        <div class="field"><label for="ss-d">Avg daily demand</label><input id="ss-d" type="number" value="120"></div>
+        <div class="field"><label for="ss-sd">Std dev daily demand</label><input id="ss-sd" type="number" value="30"></div>
+        <div class="field"><label for="ss-lt">Avg lead time (days)</label><input id="ss-lt" type="number" value="14"></div>
+        <div class="field"><label for="ss-sdl">Std dev lead time (days)</label><input id="ss-sdl" type="number" value="3"></div>
+      </div>
+      <div class="formula">SS = Z × √(LT × σd² + d² × σLT²)</div>
+    </div>
+    <div><div class="result" id="ss-out"></div><button class="btn btn-ghost btn-sm mt1" data-share>🔗 Share result</button></div>
+  </div>
+</article>
+
+<div class="ad-slot" data-ad="inArticle" style="margin:0"></div>
+
+<article class="card tool" id="tool-rop">
+  <h2>🔔 Reorder Point</h2>
+  <p class="muted">Know exactly when to place the next purchase order.</p>
+  <div class="tool-body">
+    <div class="grid">
+      <div class="field"><label for="rop-d">Avg daily demand</label><input id="rop-d" type="number" value="120"></div>
+      <div class="field"><label for="rop-lt">Lead time (days)</label><input id="rop-lt" type="number" value="14"></div>
+      <div class="field"><label for="rop-ss">Safety stock (units)</label><input id="rop-ss" type="number" value="220"></div>
+      <div class="field"><label for="rop-oh">Current on-hand (optional)</label><input id="rop-oh" type="number" value="2500"></div>
+      <div class="formula">ROP = daily demand × lead time + safety stock</div>
+    </div>
+    <div><div class="result" id="rop-out"></div><button class="btn btn-ghost btn-sm mt1" data-share>🔗 Share result</button></div>
+  </div>
+</article>
+
+<article class="card tool" id="tool-lc">
+  <h2>🧾 Landed Cost</h2>
+  <p class="muted">The real cost of an imported unit. Duty here is calculated on CIF value (goods + freight + insurance), as in the EU, UK and India. Countries such as the US and Canada assess duty closer to FOB value — for those, enter freight and insurance under “fees” so they stay out of the duty base.</p>
+  <div class="tool-body">
+    <div class="form-grid">
+      <div class="field"><label for="lc-qty">Quantity</label><input id="lc-qty" type="number" value="5000"></div>
+      <div class="field"><label for="lc-unit">Unit price ($)</label><input id="lc-unit" type="number" step="0.01" value="2.40"></div>
+      <div class="field"><label for="lc-freight">Freight total ($)</label><input id="lc-freight" type="number" value="1800"></div>
+      <div class="field"><label for="lc-ins">Insurance ($)</label><input id="lc-ins" type="number" value="60"></div>
+      <div class="field"><label for="lc-duty">Duty rate (%)</label><input id="lc-duty" type="number" step="0.1" value="6.5"></div>
+      <div class="field"><label for="lc-tax">Import VAT/GST (%)</label><input id="lc-tax" type="number" step="0.1" value="0"></div>
+      <div class="field"><label for="lc-fees">Broker, port &amp; bank fees ($)</label><input id="lc-fees" type="number" value="450"></div>
+      <div class="field"><label for="lc-inland">Inland delivery ($)</label><input id="lc-inland" type="number" value="350"></div>
+    </div>
+    <div><div class="result" id="lc-out"></div><button class="btn btn-ghost btn-sm mt1" data-share>🔗 Share result</button> <a class="btn btn-sm btn-accent mt1" href="get-quotes.html">Get supplier quotes</a></div>
+  </div>
+</article>
+
+<article class="card tool" id="tool-cbm">
+  <h2>🚢 CBM &amp; Container Load</h2>
+  <p class="muted">Carton volume and how many fit in standard containers (by volume and payload).</p>
+  <div class="tool-body">
+    <div class="form-grid">
+      <div class="field"><label for="cbm-l">Carton length (cm)</label><input id="cbm-l" type="number" value="60"></div>
+      <div class="field"><label for="cbm-w">Width (cm)</label><input id="cbm-w" type="number" value="40"></div>
+      <div class="field"><label for="cbm-h">Height (cm)</label><input id="cbm-h" type="number" value="40"></div>
+      <div class="field"><label for="cbm-n">Number of cartons</label><input id="cbm-n" type="number" value="300"></div>
+      <div class="field full"><label for="cbm-kg">Weight per carton (kg)</label><input id="cbm-kg" type="number" value="12"></div>
+      <div class="formula" style="grid-column:1/-1">CBM = L × W × H (cm) ÷ 1,000,000</div>
+    </div>
+    <div><div class="result" id="cbm-out"></div><button class="btn btn-ghost btn-sm mt1" data-share>🔗 Share result</button> <a class="btn btn-sm btn-accent mt1" href="get-quotes.html#freight">Get freight quotes</a></div>
+  </div>
+</article>
+
+<article class="card tool" id="tool-vol">
+  <h2>✈️ Volumetric &amp; Chargeable Weight</h2>
+  <p class="muted">Carriers bill the greater of actual and dimensional weight.</p>
+  <div class="tool-body">
+    <div class="form-grid">
+      <div class="field"><label for="vol-l">Length (cm)</label><input id="vol-l" type="number" value="50"></div>
+      <div class="field"><label for="vol-w">Width (cm)</label><input id="vol-w" type="number" value="40"></div>
+      <div class="field"><label for="vol-h">Height (cm)</label><input id="vol-h" type="number" value="30"></div>
+      <div class="field"><label for="vol-n">Pieces</label><input id="vol-n" type="number" value="10"></div>
+      <div class="field full"><label for="vol-kg">Actual weight per piece (kg)</label><input id="vol-kg" type="number" value="8"></div>
+      <div class="formula" style="grid-column:1/-1">Air: L×W×H ÷ 6000 · Courier: L×W×H ÷ 5000</div>
+    </div>
+    <div><div class="result" id="vol-out"></div><button class="btn btn-ghost btn-sm mt1" data-share>🔗 Share result</button></div>
+  </div>
+</article>
+
+<div class="ad-slot" data-ad="inArticle" style="margin:0"></div>
+
+<article class="card tool" id="tool-turn">
+  <h2>🔄 Inventory Turnover &amp; Days of Inventory</h2>
+  <div class="tool-body">
+    <div class="grid">
+      <div class="field"><label for="turn-cogs">Annual COGS ($)</label><input id="turn-cogs" type="number" value="1200000"></div>
+      <div class="field"><label for="turn-b">Beginning inventory ($)</label><input id="turn-b" type="number" value="210000"></div>
+      <div class="field"><label for="turn-e">Ending inventory ($)</label><input id="turn-e" type="number" value="190000"></div>
+      <div class="formula">Turnover = COGS ÷ average inventory · DOI = 365 ÷ turnover</div>
+    </div>
+    <div><div class="result" id="turn-out"></div><button class="btn btn-ghost btn-sm mt1" data-share>🔗 Share result</button></div>
+  </div>
+</article>
+
+<article class="card tool" id="tool-co2">
+  <h2>🌱 Shipping CO₂ Estimate</h2>
+  <p class="muted">Quick tank-to-wheel style estimate from typical average emission factors by mode.</p>
+  <div class="tool-body">
+    <div class="grid">
+      <div class="field"><label for="co2-mode">Transport mode</label><select id="co2-mode"><option value="10">Ocean — large container ship (~10 g/t-km)</option><option value="25">Rail (~25 g/t-km)</option><option value="90" selected>Road — truck (~90 g/t-km)</option><option value="600">Air freight (~600 g/t-km)</option></select></div>
+      <div class="field"><label for="co2-t">Cargo weight (tonnes)</label><input id="co2-t" type="number" step="0.1" value="12"></div>
+      <div class="field"><label for="co2-km">Distance (km)</label><input id="co2-km" type="number" value="1500"></div>
+      <div class="formula">CO₂e = tonnes × km × factor</div>
+    </div>
+    <div><div class="result" id="co2-out"></div><button class="btn btn-ghost btn-sm mt1" data-share>🔗 Share result</button></div>
+  </div>
+</article>
+
+<article class="card tool" id="tool-score">
+  <h2>⭐ Weighted Supplier Scorecard</h2>
+  <p class="muted">Score each supplier 1–5 per criterion; weights should total 100%.</p>
+  <div class="tool-body">
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Criterion</th><th>Weight %</th><th>Score 1–5</th></tr></thead>
+      <tbody>
+        <tr><td>Quality</td><td><input id="sc-w-q" type="number" value="30" aria-label="Quality weight"></td><td><input id="sc-s-q" type="number" min="1" max="5" value="4" aria-label="Quality score"></td></tr>
+        <tr><td>Price / TCO</td><td><input id="sc-w-p" type="number" value="25" aria-label="Price weight"></td><td><input id="sc-s-p" type="number" min="1" max="5" value="3" aria-label="Price score"></td></tr>
+        <tr><td>Delivery (OTIF)</td><td><input id="sc-w-d" type="number" value="20" aria-label="Delivery weight"></td><td><input id="sc-s-d" type="number" min="1" max="5" value="4" aria-label="Delivery score"></td></tr>
+        <tr><td>Service &amp; comms</td><td><input id="sc-w-s" type="number" value="15" aria-label="Service weight"></td><td><input id="sc-s-s" type="number" min="1" max="5" value="5" aria-label="Service score"></td></tr>
+        <tr><td>Risk &amp; compliance</td><td><input id="sc-w-r" type="number" value="10" aria-label="Risk weight"></td><td><input id="sc-s-r" type="number" min="1" max="5" value="3" aria-label="Risk score"></td></tr>
+      </tbody>
+    </table></div>
+    <div><div class="result" id="score-out"></div><button class="btn btn-ghost btn-sm mt1" data-share>🔗 Share result</button></div>
+  </div>
+</article>
+
+</div></section>
+
+<section class="section-sm">
+  <div class="container" style="max-width:760px">
+    <form class="card" data-form="tools-email" data-thanks="Done! We'll email you the calculator pack.">
+      <h3>📬 Get the offline calculator pack (Excel/Sheets) + tool updates</h3>
+      <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+      <div class="inline-form"><input type="email" name="email" required placeholder="Work email" aria-label="Email"><button class="btn btn-accent" type="submit">Send it</button></div>
+    </form>
+  </div>
+</section>
