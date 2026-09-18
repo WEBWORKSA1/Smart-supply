@@ -1,0 +1,51 @@
+<!--
+title: Landed Cost: How to Calculate the True Cost of Imported Goods
+description: Landed cost formula, every cost component (freight, insurance, duty, taxes, fees), a worked example, and how landed cost changes supplier and pricing decisions.
+layout: guide
+category: Finance
+date: 2026-09-18
+-->
+<p><b>Landed cost</b> is the total cost of getting a product to your warehouse door: the purchase price plus every transport, insurance, customs, tax and handling cost. It is the number that should drive supplier selection and retail pricing — not the factory unit price.</p>
+
+<h2>The landed cost formula</h2>
+<blockquote><b>Landed cost = Product cost + Freight + Insurance + Customs duty + Import taxes (non-recoverable) + Fees + Inland delivery</b></blockquote>
+<p>Divide by units to get landed cost per unit.</p>
+
+<h2>Every component explained</h2>
+<table><thead><tr><th>Component</th><th>What it includes</th></tr></thead><tbody>
+<tr><td>Product cost</td><td>Unit price × quantity, plus tooling, samples, packaging upgrades</td></tr>
+<tr><td>Freight</td><td>Origin charges, main carriage (ocean/air/road), destination terminal charges</td></tr>
+<tr><td>Insurance</td><td>Cargo insurance, often ~0.3–0.5% of cargo value depending on goods and route</td></tr>
+<tr><td>Customs duty</td><td>Rate by HS code × customs value (CIF basis in the EU/UK/India; FOB-like basis in the US/Canada)</td></tr>
+<tr><td>Import taxes</td><td>VAT/GST — often recoverable for registered businesses, so exclude if you reclaim it</td></tr>
+<tr><td>Fees</td><td>Customs broker, port/terminal, documentation, bank/FX charges, inspections</td></tr>
+<tr><td>Inland delivery</td><td>Drayage or trucking from port/airport to your warehouse</td></tr>
+</tbody></table>
+
+<h2>Worked example</h2>
+<p>You import 5,000 units at $2.40 each (goods value $12,000). Freight $1,800, insurance $60, duty 6.5% on CIF, broker and port fees $450, inland delivery $350.</p>
+<ul>
+<li>CIF value = 12,000 + 1,800 + 60 = <b>$13,860</b></li>
+<li>Duty = 13,860 × 6.5% = <b>$900.90</b></li>
+<li>Total landed = 13,860 + 900.90 + 450 + 350 = <b>$15,560.90</b></li>
+<li>Landed cost per unit = <b>$3.11</b> — about <b>30% above</b> the factory price.</li>
+</ul>
+<p>Run your own numbers in the <a href="{{root}}tools.html#tool-lc">landed cost calculator</a>.</p>
+
+<h2>Why landed cost changes decisions</h2>
+<ul>
+<li><b>Supplier choice:</b> a supplier 8% cheaper overseas can be more expensive landed than a nearshore supplier with lower freight and duty.</li>
+<li><b>Pricing:</b> margin calculated on factory price overstates profit; retail prices should be set from landed cost.</li>
+<li><b>Shipping mode:</b> moving from air to ocean can cut landed cost dramatically but adds weeks of inventory in transit.</li>
+<li><b>Order size:</b> larger orders spread fixed fees but raise holding costs — balance with <a href="{{root}}guides/eoq-economic-order-quantity.html">EOQ</a>.</li>
+</ul>
+
+<h2>Five ways to lower landed cost</h2>
+<ol>
+<li>Correct HS classification — and check free-trade agreement eligibility (certificate of origin).</li>
+<li>Optimize carton sizes to improve container utilization (<a href="{{root}}tools.html#tool-cbm">CBM calculator</a>).</li>
+<li>Consolidate LCL shipments into FCL when volume passes roughly 13–15 CBM.</li>
+<li>Negotiate Incoterms — FCA with your own forwarder often beats supplier-arranged freight.</li>
+<li>Explore duty drawback and bonded warehousing for re-exported goods.</li>
+</ol>
+<div class="callout small">Duty rates and customs valuation rules vary by country and change frequently. Confirm with a licensed customs broker before relying on estimates.</div>

@@ -1,0 +1,47 @@
+<!--
+title: EOQ (Economic Order Quantity): Formula, Example & When Not to Use It
+description: Learn the EOQ formula, see a worked example, understand its assumptions, and learn practical adjustments for MOQs, price breaks and variable demand.
+layout: guide
+category: Inventory
+date: 2026-09-18
+-->
+<p>The <b>Economic Order Quantity (EOQ)</b> is the order size that minimizes the combined cost of placing orders and holding inventory. Order too often and ordering costs pile up; order too much and cash sits on shelves. EOQ finds the balance point.</p>
+
+<h2>The EOQ formula</h2>
+<blockquote><b>EOQ = √(2DS ÷ H)</b><br>D = annual demand (units) · S = cost per order · H = holding cost per unit per year</blockquote>
+<p><b>Ordering cost (S)</b> includes purchasing admin, receiving, inspection and fixed freight per order. <b>Holding cost (H)</b> includes cost of capital, storage, insurance, shrinkage and obsolescence — commonly estimated at 20–30% of unit value per year.</p>
+
+<h2>Worked example</h2>
+<p>Annual demand is 12,000 units, each order costs $75 to place and receive, and holding one unit for a year costs $2.50.</p>
+<ul>
+<li>EOQ = √(2 × 12,000 × 75 ÷ 2.5) = √720,000 ≈ <b>849 units</b></li>
+<li>Orders per year = 12,000 ÷ 849 ≈ <b>14.1</b> (roughly every 26 days)</li>
+<li>Annual ordering cost ≈ 14.1 × $75 = $1,060; annual holding cost ≈ 849 ÷ 2 × $2.50 = $1,061</li>
+</ul>
+<p>At the EOQ, ordering and holding costs are equal — that's the signature of the optimum. Try it in the <a href="{{root}}tools.html#tool-eoq">EOQ calculator</a>.</p>
+
+<h2>Assumptions behind EOQ</h2>
+<ul>
+<li>Demand is constant and known.</li>
+<li>Lead time is constant.</li>
+<li>Price doesn't change with order size.</li>
+<li>The whole order arrives at once; no stockouts.</li>
+</ul>
+<p>Real supply chains break all four. That doesn't make EOQ useless — the total cost curve is flat near the optimum, so ordering 10–20% above or below EOQ usually costs very little extra.</p>
+
+<h2>Practical adjustments</h2>
+<ol>
+<li><b>Supplier MOQ:</b> if MOQ &gt; EOQ, order the MOQ (or negotiate it down).</li>
+<li><b>Quantity discounts:</b> compute total cost (purchase + ordering + holding) at EOQ and at each price-break quantity; pick the lowest.</li>
+<li><b>Container fill:</b> round to full cartons, pallets or containers when freight is the dominant ordering cost.</li>
+<li><b>Variable demand:</b> pair EOQ with <a href="{{root}}guides/safety-stock-guide.html">safety stock</a> and a reorder point.</li>
+<li><b>Seasonality:</b> recalculate EOQ per season using that season's demand rate.</li>
+</ol>
+
+<h2>EOQ vs other ordering approaches</h2>
+<table><thead><tr><th>Method</th><th>Best for</th></tr></thead><tbody>
+<tr><td>EOQ + reorder point</td><td>Stable demand, independent items</td></tr>
+<tr><td>Periodic review (order-up-to)</td><td>Many items from one supplier on a fixed schedule</td></tr>
+<tr><td>MRP</td><td>Components driven by a production schedule</td></tr>
+<tr><td>Kanban / JIT</td><td>Repetitive manufacturing with reliable suppliers</td></tr>
+</tbody></table>
