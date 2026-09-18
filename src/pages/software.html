@@ -1,0 +1,43 @@
+<!--
+title: Supply Chain Software Directory — ERP, WMS, TMS, Procurement
+description: Compare supply chain software by category: ERP, inventory, WMS, TMS, procurement/source-to-pay, planning and visibility. Get a free 15-minute match call.
+nav: software
+-->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Home</a> › Software directory</div>
+    <h1>Supply-chain software directory</h1>
+    <p>ERP, inventory, WMS, TMS, procurement, planning and visibility platforms — filtered by company size and deployment. Not sure? Our advisor shortlists 3 for free.</p>
+  </div>
+</section>
+<section class="section-sm">
+  <div class="container">
+    <div class="card"><div class="form-grid three">
+      <div class="field"><label for="sw-q">Search</label><input id="sw-q" type="search" placeholder="e.g. warehouse, cloud ERP"></div>
+      <div class="field"><label for="sw-cat">Category</label><select id="sw-cat"></select></div>
+      <div class="field"><label for="sw-size">Company size</label><select id="sw-size"><option value="">Any</option><option value="SMB">SMB</option><option value="Mid-market">Mid-market</option><option value="Enterprise">Enterprise</option></select></div>
+    </div></div>
+    <div id="software-list" class="grid g3 mt2"></div>
+    <p class="small muted mt2">Disclosure: some “Visit site” links may be affiliate links; we may earn a commission at no cost to you. Descriptions are editorial summaries and not endorsements. See our <a href="disclaimer.html">disclosure policy</a>.</p>
+  </div>
+</section>
+<div class="ad-slot" data-ad="leaderboard"></div>
+<section class="section section-alt" id="advisor">
+  <div class="container grid g2" style="align-items:start">
+    <div><span class="eyebrow">Free advisor</span><h2 class="mt1">Get a shortlist of 3 in 24 hours</h2><p class="muted">Tell us your use case, users and budget. We match you with best-fit tools and pricing ranges — you choose which vendors contact you.</p>
+      <div class="grid g2 mt2"><div class="stat"><b>3</b><span>best-fit tools</span></div><div class="stat"><b>24h</b><span>turnaround</span></div></div></div>
+    <form class="card" data-form="software-advisor" data-success="sw-success">
+      <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+      <div class="form-grid">
+        <div class="field"><label for="sa-type">Software type <span class="req">*</span></label><select id="sa-type" name="software_type" required><option value="">Select…</option><option>ERP</option><option>Inventory</option><option>WMS</option><option>TMS</option><option>Procurement</option><option>Planning</option><option>Visibility</option></select><span class="err"></span></div>
+        <div class="field"><label for="sa-users">Users</label><select id="sa-users" name="users"><option>1–5</option><option>6–25</option><option>26–100</option><option>100+</option></select></div>
+        <div class="field full"><label for="advisor-tools">Tools considered</label><input id="advisor-tools" name="considering"></div>
+        <div class="field"><label for="sa-name">Name <span class="req">*</span></label><input id="sa-name" name="name" required><span class="err"></span></div>
+        <div class="field"><label for="sa-email">Work email <span class="req">*</span></label><input id="sa-email" name="email" type="email" required><span class="err"></span></div>
+      </div>
+      <button class="btn btn-accent btn-block mt2" type="submit">Get my shortlist</button>
+    </form>
+    <div id="sw-success" class="card success-box hidden"><div class="big">✅</div><h3>Shortlist request received</h3></div>
+  </div>
+</section>
+<section class="section-sm"><div class="container center"><p class="muted">Are you a software vendor?</p><a class="btn btn-primary" href="advertise.html">Get listed &amp; featured</a></div></section>

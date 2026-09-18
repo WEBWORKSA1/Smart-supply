@@ -1,0 +1,37 @@
+<!--
+title: Supplier Directory — Find Vetted Manufacturers & Wholesalers
+description: Search suppliers by category, country, certification and MOQ. Shortlist up to 3 and request quotes in one click. Manufacturers, wholesalers, 3PLs and freight forwarders.
+nav: suppliers
+-->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Home</a> › Suppliers</div>
+    <h1>Supplier directory</h1>
+    <p>Filter by category, country, certification and MOQ. Shortlist up to 3 suppliers and send them one RFQ.</p>
+  </div>
+</section>
+<div class="container"><div class="callout small"><b>Launch notice:</b> listings marked <span class="tag badge-demo">Demo listing</span> illustrate the profile format and are not real companies. Verified suppliers are being onboarded now — <a href="list-your-company.html">claim a founding spot</a>, or <a href="get-quotes.html">post an RFQ</a> and our team will source real suppliers for you.</div></div>
+<section class="section-sm">
+  <div class="container dir-layout">
+    <aside class="filters card" aria-label="Filters">
+      <div class="field"><label for="f-q">Keyword</label><input id="f-q" type="search" placeholder="e.g. molding, organic cotton"></div>
+      <div class="field"><label for="f-cat">Category</label><select id="f-cat"></select></div>
+      <div class="field"><label for="f-country">Country</label><select id="f-country"></select></div>
+      <div class="field"><label for="f-cert">Certification</label><select id="f-cert"></select></div>
+      <div class="field"><label for="f-tier">Verification</label><select id="f-tier"><option value="">Any</option><option>Premium</option><option>Verified</option><option>Free</option></select></div>
+      <div class="field"><label for="f-moq">Max MOQ</label><select id="f-moq"><option value="">Any</option><option value="100">≤ 100</option><option value="500">≤ 500</option><option value="1000">≤ 1,000</option><option value="2000">≤ 2,000</option></select></div>
+      <button class="btn btn-ghost btn-block" id="f-reset" type="button">Reset filters</button>
+      <div class="ad-slot ad-sidebar" data-ad="sidebar" style="padding:0"></div>
+    </aside>
+    <div>
+      <div class="flex between"><b id="sup-count"></b><a class="btn btn-sm btn-accent" href="get-quotes.html">Can't find it? Post an RFQ</a></div>
+      <div id="supplier-list" class="grid mt1"></div>
+    </div>
+  </div>
+</section>
+<div class="compare-bar" id="compare-bar"><span><b id="compare-count">0</b> shortlisted</span><button class="btn btn-lime btn-sm" id="compare-go">Request quotes from all</button></div>
+<section class="section-sm">
+  <div class="container">
+    <div class="band"><div class="grid g2" style="align-items:center"><div><h2 style="color:#fff">Are you a supplier?</h2><p>Founding members get 3 months of Verified listing free and priority RFQ matching.</p></div><div class="flex" style="justify-content:flex-end"><a class="btn btn-lime btn-lg" href="list-your-company.html">Claim your listing</a></div></div></div>
+  </div>
+</section>
