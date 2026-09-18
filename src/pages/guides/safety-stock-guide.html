@@ -1,0 +1,51 @@
+<!--
+title: Safety Stock: Formulas, Service Levels & a Worked Example
+description: How to calculate safety stock for demand and lead-time variability, choose a service level, set reorder points, and avoid the most common mistakes.
+layout: guide
+category: Inventory
+date: 2026-09-18
+-->
+<p><b>Safety stock</b> is buffer inventory that protects you from stockouts when demand spikes or a supplier delivers late. Too little and you lose sales; too much and you tie up cash and warehouse space. The right amount is a calculation, not a gut feeling.</p>
+
+<h2>Three formulas, from simple to robust</h2>
+<table><thead><tr><th>Method</th><th>Formula</th><th>Use when</th></tr></thead><tbody>
+<tr><td>Rule of thumb</td><td>(Max daily sales × max lead time) − (avg daily sales × avg lead time)</td><td>No statistics available</td></tr>
+<tr><td>Demand variability</td><td>Z × σd × √LT</td><td>Lead time is reliable</td></tr>
+<tr><td>Demand + lead-time variability</td><td>Z × √(LT × σd² + d² × σLT²)</td><td>Both vary (most imports)</td></tr>
+</tbody></table>
+<p>Z is the service-level factor, σd the standard deviation of daily demand, LT the average lead time in days, d the average daily demand and σLT the standard deviation of lead time.</p>
+
+<h2>Choosing a service level</h2>
+<table><thead><tr><th>Service level</th><th>Z-score</th><th>Typical use</th></tr></thead><tbody>
+<tr><td>90%</td><td>1.28</td><td>C items, low-margin, easily substituted</td></tr>
+<tr><td>95%</td><td>1.65</td><td>Most B items — a common default</td></tr>
+<tr><td>98%</td><td>2.05</td><td>A items, key customers</td></tr>
+<tr><td>99%</td><td>2.33</td><td>Critical parts, line-stopping components</td></tr>
+</tbody></table>
+<p>Service level costs rise steeply: going from 95% to 99% raises safety stock by about 41% (2.33 ÷ 1.65). Segment with <b>ABC analysis</b> rather than applying 99% everywhere.</p>
+
+<h2>Worked example</h2>
+<p>Average daily demand 120 units (σ = 30), average lead time 14 days (σ = 3), target 95%.</p>
+<ul>
+<li>Demand term: 14 × 30² = 12,600</li>
+<li>Lead-time term: 120² × 3² = 129,600</li>
+<li>Safety stock = 1.65 × √142,200 ≈ 1.65 × 377 ≈ <b>622 units</b></li>
+<li>Reorder point = 120 × 14 + 622 = <b>2,302 units</b></li>
+</ul>
+<p>Notice that lead-time variability contributes about 10× more than demand variability here. <b>Fixing supplier reliability is often cheaper than holding more stock.</b> Try it: <a href="{{root}}tools.html#tool-ss">safety stock calculator</a>.</p>
+
+<h2>Common mistakes</h2>
+<ul>
+<li>Using monthly σ with daily lead times — keep units consistent.</li>
+<li>Ignoring lead-time variability for overseas suppliers.</li>
+<li>Never recalculating — review at least quarterly or after demand shifts.</li>
+<li>Counting safety stock as "excess" inventory in cost-cutting drives.</li>
+</ul>
+
+<h2>Reduce safety stock without raising risk</h2>
+<ol>
+<li>Shorten and stabilize lead times (nearshoring, dual sourcing — see <a href="{{root}}guides/nearshoring-china-plus-one.html">nearshoring guide</a>).</li>
+<li>Improve forecast accuracy to shrink σd.</li>
+<li>Pool inventory in fewer locations.</li>
+<li>Use vendor-managed inventory with key suppliers.</li>
+</ol>

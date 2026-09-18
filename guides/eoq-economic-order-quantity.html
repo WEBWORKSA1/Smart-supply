@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EOQ (Economic Order Quantity): Formula, Example &amp; When Not to Use It | Smart.Supply</title>
+<meta name="description" content="Learn the EOQ formula, see a worked example, understand its assumptions, and learn practical adjustments for MOQs, price breaks and variable demand.">
+<link rel="canonical" href="https://smart.supply/guides/eoq-economic-order-quantity.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b1530">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Smart.Supply">
+<meta property="og:title" content="EOQ (Economic Order Quantity): Formula, Example &amp; When Not to Use It">
+<meta property="og:description" content="Learn the EOQ formula, see a worked example, understand its assumptions, and learn practical adjustments for MOQs, price breaks and variable demand.">
+<meta property="og:url" content="https://smart.supply/guides/eoq-economic-order-quantity.html">
+<meta property="og:image" content="https://smart.supply/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css?v=20260918">
+<script>try{var t=localStorage.getItem("ss-theme");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t))}catch(e){}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "EOQ (Economic Order Quantity): Formula, Example & When Not to Use It", "description": "Learn the EOQ formula, see a worked example, understand its assumptions, and learn practical adjustments for MOQs, price breaks and variable demand.", "datePublished": "2026-09-18", "dateModified": "2026-09-18", "mainEntityOfPage": "https://smart.supply/guides/eoq-economic-order-quantity.html", "author": {"@type": "Organization", "name": "Smart.Supply Editorial"}, "publisher": {"@type": "Organization", "name": "Smart.Supply", "url": "https://smart.supply"}}</script>
+</head>
+<body data-root="../">
+<script src="../assets/js/layout.js?v=20260918"></script><script>SS_render("h")</script>
+<main id="main">
+<section class="page-hero"><div class="container">
+<div class="breadcrumbs"><a href="../index.html">Home</a> › <a href="../guides.html">Guides</a> › Inventory</div>
+<span class="tag tag-brand">Inventory</span>
+<h1 class="mt1">EOQ (Economic Order Quantity): Formula, Example &amp; When Not to Use It</h1>
+<div class="article-meta"><span>By Smart.Supply Editorial</span><span>Updated 2026-09-18</span><span>⏱ 3 min read</span><button class="btn btn-sm btn-ghost" data-share-page>Share</button></div>
+<p>Learn the EOQ formula, see a worked example, understand its assumptions, and learn practical adjustments for MOQs, price breaks and variable demand.</p>
+</div></section>
+<section class="section-sm"><div class="container article-layout">
+<article class="prose">
+<p>The <b>Economic Order Quantity (EOQ)</b> is the order size that minimizes the combined cost of placing orders and holding inventory. Order too often and ordering costs pile up; order too much and cash sits on shelves. EOQ finds the balance point.</p>
+
+<h2 id="the-eoq-formula">The EOQ formula</h2>
+<blockquote><b>EOQ = √(2DS ÷ H)</b><br>D = annual demand (units) · S = cost per order · H = holding cost per unit per year</blockquote>
+<p><b>Ordering cost (S)</b> includes purchasing admin, receiving, inspection and fixed freight per order. <b>Holding cost (H)</b> includes cost of capital, storage, insurance, shrinkage and obsolescence — commonly estimated at 20–30% of unit value per year.</p>
+
+<h2 id="worked-example">Worked example</h2>
+<p>Annual demand is 12,000 units, each order costs $75 to place and receive, and holding one unit for a year costs $2.50.</p>
+<ul>
+<li>EOQ = √(2 × 12,000 × 75 ÷ 2.5) = √720,000 ≈ <b>849 units</b></li>
+<li>Orders per year = 12,000 ÷ 849 ≈ <b>14.1</b> (roughly every 26 days)</li>
+<li>Annual ordering cost ≈ 14.1 × $75 = $1,060; annual holding cost ≈ 849 ÷ 2 × $2.50 = $1,061</li>
+</ul>
+<p>At the EOQ, ordering and holding costs are equal — that's the signature of the optimum. Try it in the <a href="../tools.html#tool-eoq">EOQ calculator</a>.</p>
+
+<div class="ad-slot" data-ad="inArticle"></div><h2 id="assumptions-behind-eoq">Assumptions behind EOQ</h2>
+<ul>
+<li>Demand is constant and known.</li>
+<li>Lead time is constant.</li>
+<li>Price doesn't change with order size.</li>
+<li>The whole order arrives at once; no stockouts.</li>
+</ul>
+<p>Real supply chains break all four. That doesn't make EOQ useless — the total cost curve is flat near the optimum, so ordering 10–20% above or below EOQ usually costs very little extra.</p>
+
+<h2 id="practical-adjustments">Practical adjustments</h2>
+<ol>
+<li><b>Supplier MOQ:</b> if MOQ &gt; EOQ, order the MOQ (or negotiate it down).</li>
+<li><b>Quantity discounts:</b> compute total cost (purchase + ordering + holding) at EOQ and at each price-break quantity; pick the lowest.</li>
+<li><b>Container fill:</b> round to full cartons, pallets or containers when freight is the dominant ordering cost.</li>
+<li><b>Variable demand:</b> pair EOQ with <a href="../guides/safety-stock-guide.html">safety stock</a> and a reorder point.</li>
+<li><b>Seasonality:</b> recalculate EOQ per season using that season's demand rate.</li>
+</ol>
+
+<h2 id="eoq-vs-other-ordering-approaches">EOQ vs other ordering approaches</h2>
+<table><thead><tr><th>Method</th><th>Best for</th></tr></thead><tbody>
+<tr><td>EOQ + reorder point</td><td>Stable demand, independent items</td></tr>
+<tr><td>Periodic review (order-up-to)</td><td>Many items from one supplier on a fixed schedule</td></tr>
+<tr><td>MRP</td><td>Components driven by a production schedule</td></tr>
+<tr><td>Kanban / JIT</td><td>Repetitive manufacturing with reliable suppliers</td></tr>
+</tbody></table>
+
+<div class="band mt3"><h3 style="color:#fff">Ready to put this into practice?</h3><p>Post a free RFQ and get competing quotes from vetted suppliers — or run the numbers with our free calculators.</p><div class="flex"><a class="btn btn-lime" href="../get-quotes.html">Get free quotes</a><a class="btn btn-ghost" href="../tools.html">Open calculators</a></div></div>
+</article>
+<aside><div class="toc"><div class="card"><b>On this page</b><ol class="mt1"><li><a href="#the-eoq-formula">The EOQ formula</a></li><li><a href="#worked-example">Worked example</a></li><li><a href="#assumptions-behind-eoq">Assumptions behind EOQ</a></li><li><a href="#practical-adjustments">Practical adjustments</a></li><li><a href="#eoq-vs-other-ordering-approaches">EOQ vs other ordering approaches</a></li></ol></div>
+<div class="card mt2"><b>📬 The Smart Supply Brief</b><p class="small muted">Weekly sourcing, freight &amp; tariff intel.</p><form data-form="newsletter-guide" data-thanks="Subscribed — welcome aboard!"><label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label><input type="email" name="email" placeholder="Work email" required aria-label="Email"><button class="btn btn-accent btn-block mt1" type="submit">Subscribe</button></form></div>
+<div class="ad-slot ad-sidebar" data-ad="sidebar" style="padding:0"></div></div></aside>
+</div></section>
+</main>
+<script>SS_render("f")</script>
+<script src="../assets/js/config.js?v=20260918"></script>
+<script src="../assets/js/data.js?v=20260918"></script>
+<script src="../assets/js/search-index.js?v=20260918"></script>
+<script src="../assets/js/app.js?v=20260918"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!--
+title: Contact Smart.Supply
+description: Contact the Smart.Supply team for sourcing help, supplier listings, partnerships, advertising or press.
+nav: contact
+-->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Home</a> › Contact</div>
+    <h1>Talk to us</h1>
+    <p>Sourcing question, partnership idea or press request — we reply within 1–2 business days.</p>
+  </div>
+</section>
+<section class="section-sm">
+  <div class="container grid split">
+    <form class="card" data-form="contact" data-success="contact-success">
+      <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+      <div class="form-grid">
+        <div class="field"><label for="ct-name">Name <span class="req">*</span></label><input id="ct-name" name="name" required><span class="err"></span></div>
+        <div class="field"><label for="ct-email">Email <span class="req">*</span></label><input id="ct-email" type="email" name="email" required><span class="err"></span></div>
+        <div class="field full"><label for="ct-topic">Topic</label><select id="ct-topic" name="topic"><option>Sourcing help</option><option>Supplier listing</option><option>Advertising / sponsorship</option><option>Partnership</option><option>Press</option><option>Bug / feedback</option><option>Other</option></select></div>
+        <div class="field full"><label for="ct-msg">Message <span class="req">*</span></label><textarea id="ct-msg" name="message" required></textarea><span class="err"></span></div>
+      </div>
+      <button class="btn btn-accent mt2" type="submit">Send message</button>
+    </form>
+    <div>
+      <div id="contact-success" class="card success-box hidden"><div class="big">✉️</div><h3>Message sent</h3></div>
+      <div class="card"><h3>Fast lanes</h3><ul class="small" style="padding-left:1.1em"><li><a href="get-quotes.html">Need quotes? Post an RFQ</a></li><li><a href="list-your-company.html">Supplier? Apply to list</a></li><li><a href="advertise.html">Advertising media kit</a></li><li><a href="careers.html">Jobs &amp; talent</a></li></ul></div>
+    </div>
+  </div>
+</section>
