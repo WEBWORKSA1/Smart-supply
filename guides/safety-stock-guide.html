@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safety Stock: Formulas, Service Levels &amp; a Worked Example | Smart.Supply</title>
+<meta name="description" content="How to calculate safety stock for demand and lead-time variability, choose a service level, set reorder points, and avoid the most common mistakes.">
+<link rel="canonical" href="https://smart.supply/guides/safety-stock-guide.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b1530">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Smart.Supply">
+<meta property="og:title" content="Safety Stock: Formulas, Service Levels &amp; a Worked Example">
+<meta property="og:description" content="How to calculate safety stock for demand and lead-time variability, choose a service level, set reorder points, and avoid the most common mistakes.">
+<meta property="og:url" content="https://smart.supply/guides/safety-stock-guide.html">
+<meta property="og:image" content="https://smart.supply/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css?v=20260918">
+<script>try{var t=localStorage.getItem("ss-theme");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t))}catch(e){}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Safety Stock: Formulas, Service Levels & a Worked Example", "description": "How to calculate safety stock for demand and lead-time variability, choose a service level, set reorder points, and avoid the most common mistakes.", "datePublished": "2026-09-18", "dateModified": "2026-09-18", "mainEntityOfPage": "https://smart.supply/guides/safety-stock-guide.html", "author": {"@type": "Organization", "name": "Smart.Supply Editorial"}, "publisher": {"@type": "Organization", "name": "Smart.Supply", "url": "https://smart.supply"}}</script>
+</head>
+<body data-root="../">
+<script src="../assets/js/layout.js?v=20260918"></script><script>SS_render("h")</script>
+<main id="main">
+<section class="page-hero"><div class="container">
+<div class="breadcrumbs"><a href="../index.html">Home</a> › <a href="../guides.html">Guides</a> › Inventory</div>
+<span class="tag tag-brand">Inventory</span>
+<h1 class="mt1">Safety Stock: Formulas, Service Levels &amp; a Worked Example</h1>
+<div class="article-meta"><span>By Smart.Supply Editorial</span><span>Updated 2026-09-18</span><span>⏱ 3 min read</span><button class="btn btn-sm btn-ghost" data-share-page>Share</button></div>
+<p>How to calculate safety stock for demand and lead-time variability, choose a service level, set reorder points, and avoid the most common mistakes.</p>
+</div></section>
+<section class="section-sm"><div class="container article-layout">
+<article class="prose">
+<p><b>Safety stock</b> is buffer inventory that protects you from stockouts when demand spikes or a supplier delivers late. Too little and you lose sales; too much and you tie up cash and warehouse space. The right amount is a calculation, not a gut feeling.</p>
+
+<h2 id="three-formulas-from-simple-to-robust">Three formulas, from simple to robust</h2>
+<table><thead><tr><th>Method</th><th>Formula</th><th>Use when</th></tr></thead><tbody>
+<tr><td>Rule of thumb</td><td>(Max daily sales × max lead time) − (avg daily sales × avg lead time)</td><td>No statistics available</td></tr>
+<tr><td>Demand variability</td><td>Z × σd × √LT</td><td>Lead time is reliable</td></tr>
+<tr><td>Demand + lead-time variability</td><td>Z × √(LT × σd² + d² × σLT²)</td><td>Both vary (most imports)</td></tr>
+</tbody></table>
+<p>Z is the service-level factor, σd the standard deviation of daily demand, LT the average lead time in days, d the average daily demand and σLT the standard deviation of lead time.</p>
+
+<h2 id="choosing-a-service-level">Choosing a service level</h2>
+<table><thead><tr><th>Service level</th><th>Z-score</th><th>Typical use</th></tr></thead><tbody>
+<tr><td>90%</td><td>1.28</td><td>C items, low-margin, easily substituted</td></tr>
+<tr><td>95%</td><td>1.65</td><td>Most B items — a common default</td></tr>
+<tr><td>98%</td><td>2.05</td><td>A items, key customers</td></tr>
+<tr><td>99%</td><td>2.33</td><td>Critical parts, line-stopping components</td></tr>
+</tbody></table>
+<p>Service level costs rise steeply: going from 95% to 99% raises safety stock by about 41% (2.33 ÷ 1.65). Segment with <b>ABC analysis</b> rather than applying 99% everywhere.</p>
+
+<div class="ad-slot" data-ad="inArticle"></div><h2 id="worked-example">Worked example</h2>
+<p>Average daily demand 120 units (σ = 30), average lead time 14 days (σ = 3), target 95%.</p>
+<ul>
+<li>Demand term: 14 × 30² = 12,600</li>
+<li>Lead-time term: 120² × 3² = 129,600</li>
+<li>Safety stock = 1.65 × √142,200 ≈ 1.65 × 377 ≈ <b>622 units</b></li>
+<li>Reorder point = 120 × 14 + 622 = <b>2,302 units</b></li>
+</ul>
+<p>Notice that lead-time variability contributes about 10× more than demand variability here. <b>Fixing supplier reliability is often cheaper than holding more stock.</b> Try it: <a href="../tools.html#tool-ss">safety stock calculator</a>.</p>
+
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul>
+<li>Using monthly σ with daily lead times — keep units consistent.</li>
+<li>Ignoring lead-time variability for overseas suppliers.</li>
+<li>Never recalculating — review at least quarterly or after demand shifts.</li>
+<li>Counting safety stock as "excess" inventory in cost-cutting drives.</li>
+</ul>
+
+<h2 id="reduce-safety-stock-without-raising-risk">Reduce safety stock without raising risk</h2>
+<ol>
+<li>Shorten and stabilize lead times (nearshoring, dual sourcing — see <a href="../guides/nearshoring-china-plus-one.html">nearshoring guide</a>).</li>
+<li>Improve forecast accuracy to shrink σd.</li>
+<li>Pool inventory in fewer locations.</li>
+<li>Use vendor-managed inventory with key suppliers.</li>
+</ol>
+
+<div class="band mt3"><h3 style="color:#fff">Ready to put this into practice?</h3><p>Post a free RFQ and get competing quotes from vetted suppliers — or run the numbers with our free calculators.</p><div class="flex"><a class="btn btn-lime" href="../get-quotes.html">Get free quotes</a><a class="btn btn-ghost" href="../tools.html">Open calculators</a></div></div>
+</article>
+<aside><div class="toc"><div class="card"><b>On this page</b><ol class="mt1"><li><a href="#three-formulas-from-simple-to-robust">Three formulas, from simple to robust</a></li><li><a href="#choosing-a-service-level">Choosing a service level</a></li><li><a href="#worked-example">Worked example</a></li><li><a href="#common-mistakes">Common mistakes</a></li><li><a href="#reduce-safety-stock-without-raising-risk">Reduce safety stock without raising risk</a></li></ol></div>
+<div class="card mt2"><b>📬 The Smart Supply Brief</b><p class="small muted">Weekly sourcing, freight &amp; tariff intel.</p><form data-form="newsletter-guide" data-thanks="Subscribed — welcome aboard!"><label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label><input type="email" name="email" placeholder="Work email" required aria-label="Email"><button class="btn btn-accent btn-block mt1" type="submit">Subscribe</button></form></div>
+<div class="ad-slot ad-sidebar" data-ad="sidebar" style="padding:0"></div></div></aside>
+</div></section>
+</main>
+<script>SS_render("f")</script>
+<script src="../assets/js/config.js?v=20260918"></script>
+<script src="../assets/js/data.js?v=20260918"></script>
+<script src="../assets/js/search-index.js?v=20260918"></script>
+<script src="../assets/js/app.js?v=20260918"></script>
+</body>
+</html>
