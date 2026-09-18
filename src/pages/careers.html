@@ -1,0 +1,86 @@
+<!--
+title: Supply Chain Jobs & Talent Network — Hire or Get Hired
+description: Post supply chain, procurement and logistics jobs, join the Smart.Supply talent network, or join our team as a writer, video creator, developer or sales partner.
+nav: careers
+-->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Home</a> › Jobs &amp; talent</div>
+    <h1>Jobs &amp; talent in <span class="grad-text">supply chain</span></h1>
+    <p>Employers: reach procurement, planning and logistics professionals. Talent: get discovered. Creators: build Smart.Supply with us.</p>
+  </div>
+</section>
+<section class="section-sm">
+  <div class="container" data-tabs>
+    <div class="tabs" role="tablist">
+      <button class="on" data-tab="hire" role="tab" aria-selected="true">🏢 Post a job</button>
+      <button data-tab="talent" role="tab" aria-selected="false">🙋 Join talent network</button>
+      <button data-tab="team" role="tab" aria-selected="false">⚡ Work with Smart.Supply</button>
+    </div>
+    <div class="tab-panel on" id="hire">
+      <div class="grid split">
+        <form class="card" data-form="job-post" data-success="job-success">
+          <h2>Post a job</h2>
+          <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+          <div class="form-grid">
+            <div class="field"><label for="j-title">Job title <span class="req">*</span></label><input id="j-title" name="job_title" required placeholder="e.g. Senior Procurement Manager"><span class="err"></span></div>
+            <div class="field"><label for="j-company">Company <span class="req">*</span></label><input id="j-company" name="company" required><span class="err"></span></div>
+            <div class="field"><label for="j-loc">Location</label><input id="j-loc" name="location" placeholder="City / Remote"></div>
+            <div class="field"><label for="j-type">Type</label><select id="j-type" name="job_type"><option>Full-time</option><option>Contract</option><option>Part-time</option><option>Internship</option></select></div>
+            <div class="field"><label for="j-fn">Function</label><select id="j-fn" name="function"><option>Procurement / sourcing</option><option>Planning</option><option>Logistics / transportation</option><option>Warehouse / fulfillment</option><option>Supply-chain tech / analytics</option></select></div>
+            <div class="field"><label for="j-sal">Salary range</label><input id="j-sal" name="salary" placeholder="$80k–$100k"></div>
+            <div class="field full"><label for="j-url">Apply URL or email <span class="req">*</span></label><input id="j-url" name="apply" required><span class="err"></span></div>
+            <div class="field full"><label for="j-desc">Description</label><textarea id="j-desc" name="description"></textarea></div>
+            <div class="field"><label for="j-pkg">Package</label><select id="j-pkg" name="package"><option>Standard — free (launch offer)</option><option>Featured — $99 / 30 days</option><option>Featured + newsletter — $249</option></select></div>
+            <div class="field"><label for="j-email">Your email <span class="req">*</span></label><input id="j-email" type="email" name="email" required><span class="err"></span></div>
+          </div>
+          <button class="btn btn-accent mt2" type="submit">Submit job</button>
+        </form>
+        <div><div id="job-success" class="card success-box hidden"><div class="big">📌</div><h3>Job received</h3><p class="muted mb0">We'll review and publish within 1 business day.</p></div>
+          <div class="card"><h3>Why post here?</h3><ul class="small" style="padding-left:1.1em"><li>Niche audience: procurement, planning, logistics</li><li>Featured jobs in the weekly newsletter</li><li>Launch offer: standard posts free</li></ul></div>
+          <div class="ad-slot ad-sidebar" data-ad="sidebar" style="padding:0"></div></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="talent">
+      <form class="card" style="max-width:860px;margin:0 auto" data-form="talent-network" data-success="talent-success">
+        <h2>Join the talent network</h2>
+        <p class="muted">Get matched with roles and freelance projects. Employers see your profile only with your permission.</p>
+        <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+        <div class="form-grid">
+          <div class="field"><label for="t-name">Name <span class="req">*</span></label><input id="t-name" name="name" required><span class="err"></span></div>
+          <div class="field"><label for="t-email">Email <span class="req">*</span></label><input id="t-email" type="email" name="email" required><span class="err"></span></div>
+          <div class="field"><label for="t-role">Current / target role</label><input id="t-role" name="role"></div>
+          <div class="field"><label for="t-exp">Experience</label><select id="t-exp" name="experience"><option>0–2 years</option><option>3–5 years</option><option>6–10 years</option><option>10+ years</option></select></div>
+          <div class="field"><label for="t-li">LinkedIn / resume URL</label><input id="t-li" type="url" name="profile_url" placeholder="https://"><span class="err"></span></div>
+          <div class="field"><label for="t-av">Availability</label><select id="t-av" name="availability"><option>Open to full-time</option><option>Open to freelance</option><option>Just exploring</option></select></div>
+          <div class="field full"><label for="t-skills">Skills &amp; certifications</label><input id="t-skills" name="skills" placeholder="CPIM, SAP, negotiation, Python…"></div>
+        </div>
+        <button class="btn btn-accent mt2" type="submit">Join network</button>
+      </form>
+      <div id="talent-success" class="card success-box hidden" style="max-width:860px;margin:0 auto"><div class="big">🙌</div><h3>Welcome to the network!</h3></div>
+    </div>
+    <div class="tab-panel" id="team">
+      <div class="section-head"><h2>We're hiring (remote, flexible)</h2><p>Help build the smartest supply-chain resource on the web.</p></div>
+      <div class="grid g3">
+        <div class="card"><span class="tag tag-brand">Freelance</span><h3 class="mt1">Supply-chain writer</h3><p class="muted small">Guides, glossary and news explainers. Paid per article.</p></div>
+        <div class="card"><span class="tag tag-brand">Freelance</span><h3 class="mt1">Video creator / editor</h3><p class="muted small">Short explainers for Smart.Supply TV and Shorts.</p></div>
+        <div class="card"><span class="tag tag-brand">Commission</span><h3 class="mt1">Partnerships &amp; sales</h3><p class="muted small">Sell listings and sponsorships to suppliers and vendors.</p></div>
+        <div class="card"><span class="tag tag-brand">Contract</span><h3 class="mt1">Front-end / AI developer</h3><p class="muted small">Calculators, directory features and AI sourcing assistant.</p></div>
+        <div class="card"><span class="tag tag-brand">Freelance</span><h3 class="mt1">Sourcing specialist</h3><p class="muted small">Match RFQs to suppliers and vet new listings.</p></div>
+        <div class="card"><span class="tag tag-brand">Volunteer / intern</span><h3 class="mt1">Community &amp; contests</h3><p class="muted small">Run challenges, moderate entries, grow social.</p></div>
+      </div>
+      <form class="card mt3" style="max-width:860px;margin-left:auto;margin-right:auto" data-form="team-application" data-thanks="Application received — thank you!">
+        <h3>Apply to join the team</h3>
+        <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+        <div class="form-grid">
+          <div class="field"><label for="ta-name">Name <span class="req">*</span></label><input id="ta-name" name="name" required><span class="err"></span></div>
+          <div class="field"><label for="ta-email">Email <span class="req">*</span></label><input id="ta-email" type="email" name="email" required><span class="err"></span></div>
+          <div class="field"><label for="ta-role">Role</label><select id="ta-role" name="role"><option>Supply-chain writer</option><option>Video creator / editor</option><option>Partnerships &amp; sales</option><option>Front-end / AI developer</option><option>Sourcing specialist</option><option>Community &amp; contests</option></select></div>
+          <div class="field"><label for="ta-port">Portfolio URL</label><input id="ta-port" type="url" name="portfolio" placeholder="https://"><span class="err"></span></div>
+          <div class="field full"><label for="ta-why">Why you?</label><textarea id="ta-why" name="pitch"></textarea></div>
+        </div>
+        <button class="btn btn-primary mt2" type="submit">Apply</button>
+      </form>
+    </div>
+  </div>
+</section>
