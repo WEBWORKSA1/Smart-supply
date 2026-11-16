@@ -1,46 +1,38 @@
 /* ============================================================
    Smart.Supply — SINGLE CONFIG FILE
-   Paste your IDs here. Everything else reads from this object.
    ============================================================ */
 window.SS_CONFIG = {
   siteName: "Smart.Supply",
   siteUrl: "https://smart.supply",
-  contactEmail: "hello@smart.supply",
 
-  /* Google AdSense — e.g. "ca-pub-1234567890123456".
-     Leave empty to show "Advertise here" house ads instead. */
-  adsenseClient: "",
+  /* Interest / partnership link shown in the top bar of every page */
+  ownerContactUrl: "https://web.works/contact",
+
+  /* Google AdSense. The loader script is placed in <head> of every page by
+     tools/build.py. Leave adSlots empty to rely on Auto ads (enable Auto ads in
+     the AdSense dashboard). Add slot IDs to render manual units. */
+  adsenseClient: "ca-pub-6620975821265271",
   adSlots: { leaderboard: "", inArticle: "", sidebar: "", inFeed: "" },
 
   /* Google Analytics 4 measurement ID, e.g. "G-XXXXXXX" (optional) */
   ga4: "",
 
-  /* Lead & form capture. Any endpoint that accepts POST (JSON):
-     Formspree  -> "https://formspree.io/f/xxxxxxx"
-     Web3Forms  -> "https://api.web3forms.com/submit" (+ set web3formsKey)
-     Getform, Basin, Supabase edge function, Make/Zapier webhook, etc.
-     Empty = submissions are stored in the visitor's browser only (demo mode). */
-  formEndpoint: "",
-  web3formsKey: "",
+  /* Form delivery. All forms are relayed by FormSubmit to the owner's inbox.
+     The destination is stored encoded (never shown on the site). After the
+     first submission FormSubmit emails an activation link — click it once.
+     If FormSubmit later gives you a random-string alias, paste it into
+     formAlias and it will be used instead of the encoded address. */
+  formRelay: "https://formsubmit.co/ajax/",
+  formAlias: "",
+  formKey: "bW9jLmxpYW1nQDFhc2tyb3diZXc=",
 
-  /* Donations / support links (leave "" to hide a button) */
-  donate: {
-    paypal: "",          // https://paypal.me/yourname
-    stripe: "",          // Stripe Payment Link
-    buymeacoffee: "",    // https://buymeacoffee.com/yourname
-    kofi: "",            // https://ko-fi.com/yourname
-    githubSponsors: "",  // https://github.com/sponsors/WEBWORKSA1
-    patreon: ""
-  },
+  /* Donation / payment links (leave "" to hide a button). Without links,
+     the support page collects pledges by form and you reply with a link. */
+  donate: { paypal: "", stripe: "", buymeacoffee: "", kofi: "", githubSponsors: "", patreon: "" },
 
-  /* YouTube — your channel URL + video IDs for the hub */
-  youtube: {
-    channelUrl: "",                 // https://www.youtube.com/@SmartSupply
-    featured: "",                   // video ID, e.g. "dQw4w9WgXcQ"
-    videos: [
-      /* { id: "VIDEO_ID", title: "EOQ explained in 6 minutes", topic: "Inventory" } */
-    ]
-  },
+  /* YouTube — your own channel (optional). The video hub also embeds the
+     latest uploads of curated channels automatically (see data.js). */
+  youtube: { channelUrl: "", featured: "", videos: [] },
 
   social: { linkedin: "", x: "", youtube: "", instagram: "", facebook: "" }
 };
