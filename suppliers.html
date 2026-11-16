@@ -4,45 +4,48 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Supplier Directory — Find Vetted Manufacturers &amp; Wholesalers | Smart.Supply</title>
-<meta name="description" content="Search suppliers by category, country, certification and MOQ. Shortlist up to 3 and request quotes in one click. Manufacturers, wholesalers, 3PLs and freight forwarders.">
+<meta name="description" content="Research manufacturers, packaging makers, 3PLs, forwarders, inspection firms and sourcing platforms by category and country. Shortlist up to 3 and request quotes in one click. Manufacturers, wholesalers, 3PLs and freight forwarders.">
 <link rel="canonical" href="https://smart.supply/suppliers.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0b1530">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Smart.Supply">
 <meta property="og:title" content="Supplier Directory — Find Vetted Manufacturers &amp; Wholesalers">
-<meta property="og:description" content="Search suppliers by category, country, certification and MOQ. Shortlist up to 3 and request quotes in one click. Manufacturers, wholesalers, 3PLs and freight forwarders.">
+<meta property="og:description" content="Research manufacturers, packaging makers, 3PLs, forwarders, inspection firms and sourcing platforms by category and country. Shortlist up to 3 and request quotes in one click. Manufacturers, wholesalers, 3PLs and freight forwarders.">
 <meta property="og:url" content="https://smart.supply/suppliers.html">
 <meta property="og:image" content="https://smart.supply/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20260918">
+<link rel="stylesheet" href="assets/css/style.css?v=1cc099aa">
 <script>try{var t=localStorage.getItem("ss-theme");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t))}catch(e){}</script>
+<meta name="google-adsense-account" content="ca-pub-6620975821265271">
+<script>try{if(JSON.parse(localStorage.getItem("ss-consent"))!=="all")(window.adsbygoogle=window.adsbygoogle||[]).requestNonPersonalizedAds=1}catch(e){}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
 
 </head>
 <body data-root="">
-<script src="assets/js/layout.js?v=20260918"></script><script>SS_render("h")</script>
+<div class="topbar"><a href="https://web.works/contact" target="_blank" rel="noopener">Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</a></div>
+<script src="assets/js/layout.js?v=1cc099aa"></script><script>SS_render("h")</script>
+
 <main id="main">
 
 <section class="page-hero">
   <div class="container">
     <div class="breadcrumbs"><a href="index.html">Home</a> › Suppliers</div>
     <h1>Supplier directory</h1>
-    <p>Filter by category, country, certification and MOQ. Shortlist up to 3 suppliers and send them one RFQ.</p>
+    <p>Research manufacturers, packaging makers, 3PLs, freight forwarders, inspection firms and sourcing platforms by category, country and company type. Shortlist up to 3 and request quotes in one step.</p>
   </div>
 </section>
-<div class="container"><div class="callout small"><b>Launch notice:</b> listings marked <span class="tag badge-demo">Demo listing</span> illustrate the profile format and are not real companies. Verified suppliers are being onboarded now — <a href="list-your-company.html">claim a founding spot</a>, or <a href="get-quotes.html">post an RFQ</a> and our team will source real suppliers for you.</div></div>
+<div class="container"><div class="callout small"><b>About this directory:</b> it lists established manufacturers, packaging makers, logistics providers, inspection firms and sourcing platforms, described from public information so you can start your research. Smart.Supply is not affiliated with these companies and does not endorse them. Want suppliers matched to your exact spec? <a href="get-quotes.html">Post an RFQ</a>. Are you a supplier? <a href="list-your-company.html">Apply for a listing</a>.</div></div>
 <section class="section-sm">
   <div class="container dir-layout">
     <aside class="filters card" aria-label="Filters">
-      <div class="field"><label for="f-q">Keyword</label><input id="f-q" type="search" placeholder="e.g. molding, organic cotton"></div>
+      <div class="field"><label for="f-q">Keyword</label><input id="f-q" type="search" placeholder="e.g. molding, denim, customs"></div>
       <div class="field"><label for="f-cat">Category</label><select id="f-cat"></select></div>
       <div class="field"><label for="f-country">Country</label><select id="f-country"></select></div>
-      <div class="field"><label for="f-cert">Certification</label><select id="f-cert"></select></div>
-      <div class="field"><label for="f-tier">Verification</label><select id="f-tier"><option value="">Any</option><option>Premium</option><option>Verified</option><option>Free</option></select></div>
-      <div class="field"><label for="f-moq">Max MOQ</label><select id="f-moq"><option value="">Any</option><option value="100">≤ 100</option><option value="500">≤ 500</option><option value="1000">≤ 1,000</option><option value="2000">≤ 2,000</option></select></div>
+      <div class="field"><label for="f-type">Company type</label><select id="f-type"></select></div>
       <button class="btn btn-ghost btn-block" id="f-reset" type="button">Reset filters</button>
       <div class="ad-slot ad-sidebar" data-ad="sidebar" style="padding:0"></div>
     </aside>
@@ -55,15 +58,16 @@
 <div class="compare-bar" id="compare-bar"><span><b id="compare-count">0</b> shortlisted</span><button class="btn btn-lime btn-sm" id="compare-go">Request quotes from all</button></div>
 <section class="section-sm">
   <div class="container">
-    <div class="band"><div class="grid g2" style="align-items:center"><div><h2 style="color:#fff">Are you a supplier?</h2><p>Founding members get 3 months of Verified listing free and priority RFQ matching.</p></div><div class="flex" style="justify-content:flex-end"><a class="btn btn-lime btn-lg" href="list-your-company.html">Claim your listing</a></div></div></div>
+    <div class="band"><div class="grid g2" style="align-items:center"><div><h2 style="color:#fff">Are you a supplier?</h2><p>Apply for a free listing. Founding members get 3 months of Verified listing free and priority RFQ matching.</p></div><div class="flex" style="justify-content:flex-end"><a class="btn btn-lime btn-lg" href="list-your-company.html">Claim your listing</a></div></div></div>
   </div>
 </section>
 
 </main>
 <script>SS_render("f")</script>
-<script src="assets/js/config.js?v=20260918"></script>
-<script src="assets/js/data.js?v=20260918"></script>
-<script src="assets/js/search-index.js?v=20260918"></script>
-<script src="assets/js/app.js?v=20260918"></script>
+<script src="assets/js/config.js?v=1cc099aa"></script>
+<script src="assets/js/data.js?v=1cc099aa"></script>
+<script src="assets/js/daily.js?v=82320a10"></script>
+<script src="assets/js/search-index.js?v=1cc099aa"></script>
+<script src="assets/js/app.js?v=1cc099aa"></script>
 </body>
 </html>

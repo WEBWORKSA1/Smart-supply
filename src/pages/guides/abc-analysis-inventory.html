@@ -1,0 +1,61 @@
+<!--
+title: ABC Analysis: How to Classify Inventory (with a Worked Example)
+description: Use ABC analysis to rank inventory by annual value, set different service levels and review cycles for A, B and C items, and combine it with XYZ analysis for demand variability.
+layout: guide
+category: Inventory
+date: 2026-11-16
+updated: 2026-11-16
+-->
+<p>Not every SKU deserves the same attention. <b>ABC analysis</b> ranks items by annual consumption value so you can focus planning effort, safety stock and supplier management where the money is. It applies the Pareto principle: a small share of items usually drives most of the value.</p>
+
+<h2>The three classes</h2>
+<table><thead><tr><th>Class</th><th>Typical share of SKUs</th><th>Typical share of value</th><th>Management approach</th></tr></thead><tbody>
+<tr><td><b>A</b></td><td>10–20%</td><td>~70–80%</td><td>Tight control, frequent review, high service level, strong supplier relationships</td></tr>
+<tr><td><b>B</b></td><td>~30%</td><td>~15–25%</td><td>Moderate control, periodic review</td></tr>
+<tr><td><b>C</b></td><td>50–60%</td><td>~5–10%</td><td>Simple rules, larger lot sizes, lower service level, automation</td></tr>
+</tbody></table>
+<p>The cut-offs are conventions, not laws. Pick thresholds that make sense for your range.</p>
+
+<h2>How to run an ABC analysis</h2>
+<ol>
+<li>For each SKU, calculate <b>annual consumption value = annual units × unit cost</b>.</li>
+<li>Sort SKUs from highest to lowest value.</li>
+<li>Calculate each SKU's share of total value and the cumulative share.</li>
+<li>Assign classes by cumulative share — for example A up to ~70–80%, B up to ~95%, C for the rest.</li>
+</ol>
+
+<h2>Worked example</h2>
+<p>Ten SKUs with a total annual consumption value of $300,000:</p>
+<table><thead><tr><th>SKU</th><th>Annual value</th><th>Cumulative %</th><th>Class</th></tr></thead><tbody>
+<tr><td>1</td><td>$120,000</td><td>40.0%</td><td>A</td></tr>
+<tr><td>2</td><td>$90,000</td><td>70.0%</td><td>A</td></tr>
+<tr><td>3</td><td>$30,000</td><td>80.0%</td><td>B</td></tr>
+<tr><td>4</td><td>$22,000</td><td>87.3%</td><td>B</td></tr>
+<tr><td>5</td><td>$15,000</td><td>92.3%</td><td>B</td></tr>
+<tr><td>6</td><td>$8,000</td><td>95.0%</td><td>C</td></tr>
+<tr><td>7</td><td>$6,000</td><td>97.0%</td><td>C</td></tr>
+<tr><td>8</td><td>$4,000</td><td>98.3%</td><td>C</td></tr>
+<tr><td>9</td><td>$3,000</td><td>99.3%</td><td>C</td></tr>
+<tr><td>10</td><td>$2,000</td><td>100%</td><td>C</td></tr>
+</tbody></table>
+<p>Two SKUs (20% of items) hold 70% of the value. Three B items hold 22.3%, and five C items — half the range — hold just 7.7%. Your planning time should follow those numbers.</p>
+
+<h2>Turning classes into policies</h2>
+<ul>
+<li><b>Service levels:</b> for example 98–99% for A, 95% for B, 90% for C. Calculate the buffer with the <a href="{{root}}tools.html#tool-ss">safety stock calculator</a>.</li>
+<li><b>Review frequency:</b> weekly for A, monthly for B, quarterly for C.</li>
+<li><b>Ordering:</b> smaller, frequent orders for A to limit capital tied up; larger <a href="{{root}}guides/eoq-economic-order-quantity.html">EOQ-based</a> lots for C to cut admin.</li>
+<li><b>Cycle counting:</b> count A items monthly, B quarterly, C once or twice a year.</li>
+<li><b>Suppliers:</b> dual-source and negotiate hardest on A items.</li>
+</ul>
+
+<h2>Add XYZ analysis for demand variability</h2>
+<p>ABC says how valuable an item is; <b>XYZ</b> says how predictable its demand is, using the coefficient of variation (standard deviation ÷ mean of demand). X items are stable, Y items fluctuate, Z items are erratic. An <b>AX</b> item (valuable, predictable) suits lean replenishment; an <b>AZ</b> item (valuable, erratic) needs close collaboration with customers and suppliers; <b>CZ</b> items are candidates for make-to-order or discontinuation.</p>
+
+<h2>Common mistakes</h2>
+<ul>
+<li>Ranking by unit price instead of annual consumption value.</li>
+<li>Never re-running the analysis — redo it at least every six months.</li>
+<li>Ignoring critical cheap parts: a $2 component that stops a production line deserves A-level availability.</li>
+</ul>
+<p>Measure the result with the <a href="{{root}}tools.html#tool-turn">inventory turnover calculator</a> before and after you change policies.</p>
