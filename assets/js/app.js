@@ -82,22 +82,19 @@
   });
   function loadScript(src, attrs) { var s = document.createElement("script"); s.async = true; s.src = src; if (attrs) Object.keys(attrs).forEach(function (k) { s.setAttribute(k, attrs[k]); }); document.head.appendChild(s); }
   var tpLoaded = false;
+  /* AdSense loader lives in <head> (added by tools/build.py) so Google can verify the site.
+     Personalization follows the visitor's choice; it takes effect from the next page view. */
   function loadThirdParty() {
     if (tpLoaded) return; tpLoaded = true;
-    if (C.adsenseClient) {
-      window.adsbygoogle = window.adsbygoogle || [];
-      if (consent !== "all") window.adsbygoogle.requestNonPersonalizedAds = 1;
-      loadScript("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + C.adsenseClient, { crossorigin: "anonymous" });
-      $$(".adsbygoogle").forEach(function () { try { window.adsbygoogle.push({}); } catch (e) {} });
-    }
+    try { if (consent !== "all") (window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1; } catch (e) {}
     if (C.ga4 && consent === "all") {
       loadScript("https://www.googletagmanager.com/gtag/js?id=" + C.ga4);
       window.dataLayer = window.dataLayer || []; window.gtag = function () { dataLayer.push(arguments); }; gtag("js", new Date()); gtag("config", C.ga4);
     }
   }
   var houseAds = [
-    ["📣", "Reach 1000s of procurement & logistics buyers.", "advertise.html", "Advertise here"],
-    ["🏭", "Suppliers: get matched to live RFQs.", "list-your-company.html", "List your company"],
+    ["📣", "Reach procurement & logistics buyers on Smart.Supply.", "advertise.html", "Advertise with us"],
+    ["🏭", "Suppliers: get matched to live buyer RFQs.", "list-your-company.html", "List your company"],
     ["💚", "Keep Smart.Supply free — become a supporter.", "support.html", "Support us"],
     ["🏆", "Enter the Smart Sourcing Challenge — win prizes.", "contests.html", "Enter now"]
   ];
@@ -106,9 +103,10 @@
     var slotId = (C.adSlots || {})[type];
     if (C.adsenseClient && slotId) {
       slot.innerHTML = '<div class="ad-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="' + esc(C.adsenseClient) + '" data-ad-slot="' + esc(slotId) + '" data-ad-format="' + (type === "inArticle" ? "fluid" : "auto") + '"' + (type === "inArticle" ? ' data-ad-layout="in-article"' : "") + ' data-full-width-responsive="true"></ins>';
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
     } else {
       var h = houseAds[i % houseAds.length];
-      slot.innerHTML = '<div class="ad-label">Sponsored</div><div class="ad-placeholder"><span style="font-size:1.3rem">' + h[0] + "</span><span>" + h[1] + '</span><a class="btn btn-sm btn-ghost" href="' + ROOT + h[2] + '">' + h[3] + "</a></div>";
+      slot.innerHTML = '<div class="ad-label">From Smart.Supply</div><div class="ad-placeholder"><span style="font-size:1.3rem">' + h[0] + "</span><span>" + h[1] + '</span><a class="btn btn-sm btn-ghost" href="' + ROOT + h[2] + '">' + h[3] + "</a></div>";
     }
   });
   if (consent !== null) loadThirdParty();
@@ -140,13 +138,22 @@
     Object.keys(utm).forEach(function (k) { data["_" + k] = utm[k]; });
     return data;
   }
+  function relayAddress() {
+    if (C.formAlias) return C.formAlias;
+    try { return atob(C.formKey || "").split("").reverse().join(""); } catch (e) { return ""; }
+  }
   function send(data) {
     var leads = store.get("ss-leads", []); leads.push(data); store.set("ss-leads", leads.slice(-50));
     if (window.gtag) gtag("event", "generate_lead", { form_name: data._form });
-    if (!C.formEndpoint) return Promise.resolve({ demo: true });
-    if (C.web3formsKey) data.access_key = C.web3formsKey;
-    data.subject = "Smart.Supply — " + data._form;
-    return fetch(C.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) })
+    var to = relayAddress();
+    if (!to || !C.formRelay) return Promise.resolve({ local: true });
+    var payload = {};
+    Object.keys(data).forEach(function (k) { if (k !== "website_hp" && !(k === "website" && !data[k])) payload[k.replace(/^_/, "meta_")] = Array.isArray(data[k]) ? data[k].join(", ") : data[k]; });
+    payload._subject = "Smart.Supply — " + (data._form || "form") + (data.email ? " — " + data.email : "");
+    payload._template = "table";
+    payload._captcha = "false";
+    if (data.email) payload._replyto = data.email;
+    return fetch(C.formRelay + encodeURIComponent(to), { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) })
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r; });
   }
   window.SS_send = send;
@@ -164,7 +171,7 @@
         if (succ && document.getElementById(succ)) { form.classList.add("hidden"); document.getElementById(succ).classList.remove("hidden"); }
         else { toast(form.getAttribute("data-thanks") || "Thanks! We'll be in touch shortly."); form.reset(); }
         var m = form.closest(".modal"); if (m) setTimeout(function () { closeModal(m); }, 1400);
-      }).catch(function () { toast("Network error — please retry or email " + (C.contactEmail || "us") + "."); })
+      }).catch(function () { toast("Network error — please try again in a moment."); })
         .then(function () { if (btn) { btn.disabled = false; btn.innerHTML = txt; } });
     });
   });
@@ -268,35 +275,34 @@
   var supList = $("#supplier-list");
   if (supList) {
     var cats = D.categories || [], catName = {}; cats.forEach(function (c) { catName[c.id] = c.name; });
-    var fCat = $("#f-cat"), fCountry = $("#f-country"), fCert = $("#f-cert"), fTier = $("#f-tier"), fMoq = $("#f-moq"), fQ = $("#f-q");
-    fCat.innerHTML = '<option value="">All categories</option>' + cats.map(function (c) { return '<option value="' + c.id + '">' + c.icon + " " + c.name + "</option>"; }).join("");
-    var countries = Array.from(new Set(D.suppliers.map(function (s) { return s.country; }))).sort();
-    fCountry.innerHTML = '<option value="">All countries</option>' + countries.map(function (c) { return "<option>" + c + "</option>"; }).join("");
-    var certs = Array.from(new Set([].concat.apply([], D.suppliers.map(function (s) { return s.certs; })))).sort();
-    fCert.innerHTML = '<option value="">Any certification</option>' + certs.map(function (c) { return "<option>" + c + "</option>"; }).join("");
+    var fCat = $("#f-cat"), fCountry = $("#f-country"), fType = $("#f-type"), fQ = $("#f-q");
+    var usedCats = cats.filter(function (c) { return D.suppliers.some(function (s) { return s.cat === c.id; }); });
+    fCat.innerHTML = '<option value="">All categories</option>' + usedCats.map(function (c) { return '<option value="' + c.id + '">' + c.icon + " " + c.name + "</option>"; }).join("");
+    var uniq = function (k) { return Array.from(new Set(D.suppliers.map(function (s) { return s[k]; }))).sort(); };
+    fCountry.innerHTML = '<option value="">All countries</option>' + uniq("country").map(function (c) { return "<option>" + esc(c) + "</option>"; }).join("");
+    fType.innerHTML = '<option value="">All company types</option>' + uniq("type").map(function (c) { return "<option>" + esc(c) + "</option>"; }).join("");
     if (qs.get("cat")) fCat.value = qs.get("cat");
     if (qs.get("q")) fQ.value = qs.get("q");
     var compare = [];
     var render = function () {
-      var q = fQ.value.toLowerCase(), maxMoq = parseInt(fMoq.value || "0", 10);
-      var tierRank = { Premium: 0, Verified: 1, Free: 2 };
+      var q = fQ.value.toLowerCase();
       var list = D.suppliers.filter(function (s) {
-        return (!fCat.value || s.cat === fCat.value) && (!fCountry.value || s.country === fCountry.value) && (!fCert.value || s.certs.indexOf(fCert.value) > -1) && (!fTier.value || s.tier === fTier.value) && (!maxMoq || s.moq <= maxMoq) && (!q || (s.name + s.desc + s.country + catName[s.cat]).toLowerCase().indexOf(q) > -1);
-      }).sort(function (a, b) { return tierRank[a.tier] - tierRank[b.tier]; });
-      $("#sup-count").textContent = list.length + " supplier" + (list.length === 1 ? "" : "s");
+        return (!fCat.value || s.cat === fCat.value) && (!fCountry.value || s.country === fCountry.value) && (!fType.value || s.type === fType.value) && (!q || (s.name + " " + s.desc + " " + s.country + " " + s.type + " " + catName[s.cat]).toLowerCase().indexOf(q) > -1);
+      });
+      $("#sup-count").textContent = list.length + " compan" + (list.length === 1 ? "y" : "ies");
       supList.innerHTML = list.length ? list.map(function (s) {
-        var init = s.name.replace("Demo: ", "").split(" ").map(function (w) { return w[0]; }).slice(0, 2).join("");
-        return '<article class="card list-card reveal in"><div class="avatar">' + esc(init) + '</div><div style="flex:1;min-width:0"><h3 style="margin:0">' + esc(s.name) + '</h3><div class="meta"><span class="tag badge-demo">Demo listing</span>' + (s.tier !== "Free" ? '<span class="tag tag-brand">✓ ' + s.tier + "</span>" : "") + '<span class="tag">' + esc(catName[s.cat]) + '</span><span class="tag">📍 ' + esc(s.country) + '</span><span class="tag">MOQ ' + fmt(s.moq, 0) + '</span><span class="tag">⏱ ' + esc(s.lead) + '</span></div><p class="muted small mb0">' + esc(s.desc) + '</p><div class="meta">' + s.certs.map(function (c) { return '<span class="tag tag-lime">' + esc(c) + "</span>"; }).join("") + '</div></div><div class="actions"><a class="btn btn-sm btn-primary" href="get-quotes.html?category=' + encodeURIComponent(s.cat) + "&supplier=" + encodeURIComponent(s.name) + '">Request quote</a><button class="btn btn-sm btn-ghost" data-compare="' + esc(s.name) + '">' + (compare.indexOf(s.name) > -1 ? "✓ Shortlisted" : "+ Shortlist") + "</button></div></article>";
+        var init = s.name.replace(/[^A-Za-z0-9 ]/g, "").split(" ").filter(Boolean).map(function (w) { return w[0]; }).slice(0, 2).join("").toUpperCase();
+        return '<article class="card list-card"><div class="avatar">' + esc(init) + '</div><div style="flex:1;min-width:0"><h3 style="margin:0">' + esc(s.name) + '</h3><div class="meta"><span class="tag tag-brand">' + esc(s.type) + '</span><span class="tag">' + esc(catName[s.cat] || "") + '</span><span class="tag">📍 ' + esc(s.country) + '</span></div><p class="muted small mb0">' + esc(s.desc) + '</p></div><div class="actions"><a class="btn btn-sm btn-primary" href="get-quotes.html?category=' + encodeURIComponent(s.cat) + "&supplier=" + encodeURIComponent(s.name) + '">Request quotes</a><a class="btn btn-sm btn-ghost" href="' + esc(s.url) + '" target="_blank" rel="noopener nofollow">Website ↗</a><button class="btn btn-sm btn-ghost" data-compare="' + esc(s.name) + '">' + (compare.indexOf(s.name) > -1 ? "✓ Shortlisted" : "+ Shortlist") + "</button></div></article>";
       }).join("") : '<div class="card center"><h3>No match yet</h3><p class="muted">Post an RFQ and our team will source suppliers for you.</p><a class="btn btn-accent" href="get-quotes.html">Post a free RFQ</a></div>';
     };
-    [fCat, fCountry, fCert, fTier, fMoq].forEach(function (el) { el.addEventListener("change", render); });
+    [fCat, fCountry, fType].forEach(function (el) { el.addEventListener("change", render); });
     fQ.addEventListener("input", render);
-    $("#f-reset").addEventListener("click", function () { [fCat, fCountry, fCert, fTier, fMoq, fQ].forEach(function (el) { el.value = ""; }); render(); });
+    $("#f-reset").addEventListener("click", function () { [fCat, fCountry, fType, fQ].forEach(function (el) { el.value = ""; }); render(); });
     var cbar = $("#compare-bar");
     supList.addEventListener("click", function (e) {
       var b = e.target.closest("[data-compare]"); if (!b) return;
       var n = b.getAttribute("data-compare"), i = compare.indexOf(n);
-      if (i > -1) compare.splice(i, 1); else { if (compare.length >= 3) { toast("Shortlist up to 3 suppliers"); return; } compare.push(n); }
+      if (i > -1) compare.splice(i, 1); else { if (compare.length >= 3) { toast("Shortlist up to 3 companies"); return; } compare.push(n); }
       $("#compare-count").textContent = compare.length; cbar.classList.toggle("show", compare.length > 0); render();
     });
     $("#compare-go").addEventListener("click", function () { location.href = "get-quotes.html?supplier=" + encodeURIComponent(compare.join("; ")); });
@@ -459,6 +465,89 @@
     document.addEventListener("mouseout", function h(e) { if (armed && !e.relatedTarget && e.clientY < 10) { store.ss("ss-exit", "1"); openModal("exit-modal"); document.removeEventListener("mouseout", h); } });
   }
 
+  /* ---------- Daily, self-updating content ---------- */
+  var DY = window.SS_DAILY || {};
+  var dayIdx = Math.floor(Date.now() / 864e5);
+  var pick = function (arr, off) { return arr && arr.length ? arr[(dayIdx + (off || 0)) % arr.length] : null; };
+  var fmtDate = function (d) { try { return new Date(d + (d.length === 10 ? "T12:00:00Z" : "")).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); } catch (e) { return d; } };
+  $$("[data-updated]").forEach(function (el) { if (DY.updated) el.textContent = fmtDate(DY.updated); });
+  var mk = function (id) { return (DY.market || []).filter(function (m) { return m.id === id; })[0]; };
+  function chg(m) { var p = m && m.points; if (!p || p.length < 2) return ""; var a = p[p.length - 1][1], b = p[p.length - 2][1]; var d = (a - b) / b * 100; return '<span class="' + (d >= 0 ? "up" : "down") + '">' + (d >= 0 ? "▲" : "▼") + " " + Math.abs(d).toFixed(1) + "%</span>"; }
+  function last(m) { var p = m && m.points; return p && p.length ? p[p.length - 1][1] : null; }
+  $$("[data-ticker]").forEach(function (el) {
+    var items = [];
+    var dsl = mk("GASDESW"), wti = mk("DCOILWTICO"), gs = mk("GSCPI"), ppi = mk("PCU483111483111"), cass = mk("FRGSHPUSM649NCIS");
+    if (dsl) items.push(["US diesel", "$" + last(dsl).toFixed(3) + "/gal", chg(dsl)]);
+    if (wti) items.push(["WTI crude", "$" + last(wti).toFixed(2), chg(wti)]);
+    if (gs) items.push(["Supply-chain pressure (GSCPI)", last(gs).toFixed(2), chg(gs)]);
+    if (cass) items.push(["Cass shipments", last(cass).toFixed(3), chg(cass)]);
+    if (ppi) items.push(["Ocean freight PPI", last(ppi).toFixed(0), chg(ppi)]);
+    var fx = DY.fx && DY.fx.rates;
+    if (fx) ["CNY", "INR", "EUR", "MXN", "CAD"].forEach(function (c) { if (fx[c]) items.push(["USD/" + c, Number(fx[c]).toFixed(c === "INR" || c === "JPY" ? 2 : 4), ""]); });
+    if (!items.length) { el.classList.add("hidden"); return; }
+    var html = items.map(function (i) { return '<span class="tick"><b>' + i[0] + "</b> " + i[1] + " " + i[2] + "</span>"; }).join("");
+    el.innerHTML = '<div class="ticker-track">' + html + html + '</div><a class="ticker-more" href="' + ROOT + 'markets.html">Market pulse →</a>';
+  });
+  var brief = $("#today-brief");
+  if (brief && DY.news && DY.news.length) {
+    brief.innerHTML = DY.news.slice(0, 6).map(function (n) {
+      return '<a class="card card-link news-card" href="' + esc(n.url) + '" target="_blank" rel="noopener"><div class="flex between small muted"><span class="tag tag-brand">' + esc(n.topic || "News") + "</span><span>" + esc(n.source) + (n.date ? " · " + fmtDate(n.date) : "") + '</span></div><h3 class="mt1">' + esc(n.title) + '</h3><p class="muted small mb0">' + esc(n.summary || "") + "</p></a>";
+    }).join("");
+  }
+  var tip = $("#tip-of-day"); if (tip && D.tips) tip.textContent = pick(D.tips);
+  var term = $("#term-of-day");
+  if (term && D.glossary) { var t = pick(D.glossary, 7); term.innerHTML = "<b>" + esc(t[0]) + "</b> — " + esc(t[1]) + ' <a href="' + ROOT + "glossary.html#" + slug(t[0]) + '">Glossary →</a>'; }
+  var toolOfDay = $("#tool-of-day");
+  if (toolOfDay) { var tools = [["Landed cost", "lc"], ["EOQ", "eoq"], ["Safety stock", "ss"], ["Reorder point", "rop"], ["CBM & container load", "cbm"], ["Chargeable weight", "vol"], ["Inventory turnover", "turn"], ["Shipping CO₂", "co2"], ["Supplier scorecard", "score"], ["Currency converter", "fx"]]; var tt2 = pick(tools, 3); toolOfDay.innerHTML = '<a href="' + ROOT + "tools.html#tool-" + tt2[1] + '">' + tt2[0] + " calculator →</a>"; }
+  var cl = $("#closures");
+  if (cl && D.closures) {
+    var now = Date.now();
+    var up = D.closures.filter(function (c) { return new Date(c.date + "T23:59:59Z").getTime() >= now; }).slice(0, 4);
+    cl.innerHTML = up.map(function (c) { var days = Math.max(0, Math.ceil((new Date(c.date + "T00:00:00Z").getTime() - now) / 864e5)); return '<div class="closure"><div class="days"><b>' + days + "</b><span>days</span></div><div><b>" + esc(c.name) + '</b> <span class="muted small">' + fmtDate(c.date) + '</span><p class="small muted mb0">' + esc(c.note) + "</p></div></div>"; }).join("") || '<p class="muted">No closures in the calendar.</p>';
+  }
+
+  /* Live currency converter (ECB reference rates via Frankfurter; falls back to the daily snapshot) */
+  var fxBox = $("#tool-fx");
+  if (fxBox) {
+    var fa = $("#fx-amt"), ff = $("#fx-from"), ft = $("#fx-to"), fo = $("#fx-out"), cache = {};
+    var snap = DY.fx && DY.fx.rates ? Object.assign({ USD: 1 }, DY.fx.rates) : null;
+    var calcFx = function () {
+      var amt = parseFloat(fa.value) || 0, f = ff.value, t = ft.value;
+      var show = function (rate, src, date) { fo.innerHTML = '<div class="small">' + fmt(amt) + " " + f + ' =</div><div class="val">' + fmt(amt * rate, 2) + " " + t + "</div>" + rows([["Rate", "1 " + f + " = " + fmt(rate, 5) + " " + t], ["Source", src], ["Rate date", date || "—"]]); };
+      if (f === t) return show(1, "—", "");
+      if (cache[f]) return show(cache[f].rates[t], "ECB reference (live)", cache[f].date);
+      fetch("https://api.frankfurter.dev/v1/latest?base=" + f).then(function (r) { return r.json(); }).then(function (j) { if (!j.rates) throw 0; j.rates[f] = 1; cache[f] = j; show(j.rates[t], "ECB reference (live)", j.date); })
+        .catch(function () { if (snap && snap[f] && snap[t]) show(snap[t] / snap[f], "Daily snapshot", DY.fx.date); else fo.innerHTML = "<p>Rates unavailable right now.</p>"; });
+    };
+    [fa, ff, ft].forEach(function (el) { el.addEventListener("input", calcFx); });
+    calcFx();
+  }
+
+  /* Curated channels: each card embeds the channel's latest uploads (always current) */
+  var chGrid = $("#channel-grid");
+  if (chGrid && D.channels) {
+    chGrid.innerHTML = D.channels.map(function (c, i) {
+      return '<div class="card" style="padding:14px"><div class="video-embed channel-embed" data-ch="' + i + '" role="button" tabindex="0" aria-label="Play latest videos from ' + esc(c.name) + '"><div class="play"><span>▶</span></div><div class="ch-name">' + esc(c.name) + '<small>Latest uploads</small></div></div><div class="flex between mt1"><h3 style="font-size:1.05rem;margin:0">' + esc(c.name) + '</h3><span class="tag">' + esc(c.topic) + '</span></div><p class="muted small">' + esc(c.desc) + '</p><a class="small" href="https://www.youtube.com/channel/' + esc(c.id) + '" target="_blank" rel="noopener">Open channel on YouTube ↗</a></div>';
+    }).join("");
+    $$("[data-ch]", chGrid).forEach(function (el) {
+      var go = function () { var c = D.channels[+el.getAttribute("data-ch")]; el.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UU' + c.id.slice(2) + '&rel=0" title="Latest videos from ' + esc(c.name) + '" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>'; };
+      el.addEventListener("click", go, { once: true });
+      el.addEventListener("keydown", function (e) { if (e.key === "Enter") go(); }, { once: true });
+    });
+  }
+
+  /* Quick-quote slide-in on content pages (once per session) */
+  if (document.body.hasAttribute("data-slidein") && !store.ss("ss-slide")) {
+    var si = document.createElement("div");
+    si.className = "slidein"; si.setAttribute("role", "dialog"); si.setAttribute("aria-label", "Get supplier quotes");
+    si.innerHTML = '<button class="icon-btn modal-close" aria-label="Close">✕</button><b>Sourcing something?</b><p class="small muted">Post one free RFQ and get competing quotes from matched suppliers.</p><form><input name="product" required placeholder="What do you need?" aria-label="Product"><button class="btn btn-accent btn-block mt1" type="submit">Get free quotes →</button></form>';
+    document.body.appendChild(si);
+    var shown = false;
+    addEventListener("scroll", function () { if (shown) return; var h = document.documentElement; if ((h.scrollTop + innerHeight) / h.scrollHeight > 0.55) { shown = true; si.classList.add("show"); store.ss("ss-slide", "1"); } }, { passive: true });
+    si.querySelector(".modal-close").addEventListener("click", function () { si.classList.remove("show"); });
+    si.querySelector("form").addEventListener("submit", function (e) { e.preventDefault(); location.href = ROOT + "get-quotes.html?product=" + encodeURIComponent(si.querySelector("input").value); });
+  }
+
   /* ---------- Misc ---------- */
   var tt = $(".to-top");
   addEventListener("scroll", function () { if (tt) tt.classList.toggle("show", scrollY > 800); }, { passive: true });
@@ -471,5 +560,4 @@
       else if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied"); });
     });
   });
-  if (!C.formEndpoint && /[?&]debug/.test(location.search)) console.info("[Smart.Supply] Demo mode: leads stored locally →", store.get("ss-leads", []));
 })();
