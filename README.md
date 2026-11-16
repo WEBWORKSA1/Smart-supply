@@ -9,21 +9,23 @@ Static, dependency-free website (HTML + CSS + vanilla JS) built for **lead gener
 | Area | Pages |
 |---|---|
 | Lead generation | `get-quotes.html` (4-step RFQ wizard, freight/3PL quote, software advisor), `list-your-company.html`, exit-intent lead magnet, newsletters |
-| Directories | `suppliers.html` (filters + shortlist), `software.html` |
-| Tools | `tools.html` — EOQ, safety stock, reorder point, landed cost, CBM, chargeable weight, turnover, CO₂, supplier scorecard |
-| Content / SEO | `guides.html` + 8 guides in `/guides`, `glossary.html` (85+ terms), sitemap, schema.org |
-| Video | `videos.html` — lite YouTube embeds driven by config |
+| Directories | `suppliers.html` (44 real companies, filters + shortlist), `software.html` |
+| Daily (auto) | `news.html` daily brief, `markets.html` market pulse + FX, home-page ticker, tip/term/tool of the day, closures countdown — see `AGENT.md` |
+| Tools | `tools.html` — EOQ, safety stock, reorder point, landed cost, CBM, chargeable weight, turnover, CO₂, supplier scorecard, live currency converter |
+| Content / SEO | `guides.html` + 14 guides in `/guides`, `glossary.html` (85+ terms), sitemap, schema.org |
+| Video | `videos.html` — 10 curated channels; each embeds its latest uploads automatically |
 | Community | `contests.html`, `careers.html` (jobs, talent network, hiring) |
 | Revenue | `support.html` (donations), `advertise.html` (media kit), AdSense slots site-wide |
-| Legal | privacy (AdSense/GDPR/CCPA/PIPEDA), terms, disclaimer, 404 |
+| Legal | privacy (AdSense/GDPR/CCPA/PIPEDA), terms, disclaimer, `legal.html` (trademark & copyright), `editorial.html`, 404 |
 
-## Go-live checklist (edit `assets/js/config.js` only)
-1. **Leads:** set `formEndpoint` (Formspree / Web3Forms / Getform / webhook). Until set, forms run in demo mode (stored in the visitor's browser only).
-2. **AdSense:** set `adsenseClient` + `adSlots`, and uncomment your line in `ads.txt`.
-3. **Donations:** add PayPal / Stripe Payment Link / Buy Me a Coffee / Ko-fi / GitHub Sponsors URLs.
-4. **YouTube:** set `channelUrl`, `featured` and `videos` IDs.
-5. **Analytics:** set `ga4`.
-6. **Custom domain:** add a `CNAME` file containing `smart.supply`, point DNS to GitHub Pages, enable "Enforce HTTPS".
+## Status & owner checklist
+- **AdSense:** publisher `ca-pub-6620975821265271` is in the `<head>` of every page (except 404, get-quotes, contact) and in `ads.txt`. In AdSense: add the site `smart.supply`, turn on **Auto ads**, and enable **Privacy & messaging → European regulations** (Google-certified CMP).
+- **Forms:** every form is relayed by FormSubmit to the owner inbox (address stored encoded in `config.js`). The first submission triggers a one-time **Activate** email — click it.
+- **Domain:** point `smart.supply` DNS to GitHub Pages, then add a `CNAME` file containing `smart.supply` and enable *Enforce HTTPS*. AdSense review needs the domain live.
+- **Optional:** donation links, GA4 id, own YouTube channel — all in `assets/js/config.js`.
+
+## Daily automation
+A scheduled Claude task runs `AGENT.md` every day: gathers news, FRED market data and FX into `data/inbox.json`, writes original summaries, runs `tools/daily_update.py`, and publishes to `main` + `gh-pages`. Pages also rotate daily content client-side and pull live FX and the latest YouTube uploads in the browser.
 
 ## Editing & building
 Page sources live in `src/pages/**` (HTML fragments with a front-matter comment). Shared header/footer/SEO are in `tools/build.py`.
@@ -38,5 +40,6 @@ Served by GitHub Pages from the repo root. After editing `src/pages`, run the bu
 
 ## Docs
 - `docs/STRATEGY.md` — concept & revenue model
-- `docs/RESEARCH.md` — 32-site competitive research
+- `docs/RESEARCH.md` — 45-site competitive research
+- `AGENT.md` — daily update runbook
 - `docs/BUILD-PROMPT.md` — phase-wise build prompt

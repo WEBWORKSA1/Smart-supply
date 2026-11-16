@@ -1,0 +1,45 @@
+<!--
+title: Freight Modes Compared: Ocean vs Air vs Rail vs Road (Cost, Speed, CO₂)
+description: Compare ocean FCL and LCL, air, express, rail and road freight on cost, transit time, reliability and emissions, with simple rules for choosing the right mode.
+layout: guide
+category: Logistics
+date: 2026-11-16
+updated: 2026-11-16
+-->
+<p>Choosing a freight mode is a trade-off between <b>cost, speed, reliability and emissions</b>. The cheapest mode per kilogram is rarely the cheapest overall once you count the inventory sitting in transit, stockouts and expediting. This guide compares the main options and gives simple rules for picking one.</p>
+
+<h2>The modes at a glance</h2>
+<table><thead><tr><th>Mode</th><th>Relative cost</th><th>Typical transit</th><th>CO₂ (g per tonne-km, indicative)</th><th>Best for</th></tr></thead><tbody>
+<tr><td>Ocean FCL</td><td>Lowest per unit</td><td>Asia→US West Coast ~2–3 weeks port to port; Asia→N. Europe ~5–7 weeks</td><td>~10</td><td>Full containers, steady demand</td></tr>
+<tr><td>Ocean LCL</td><td>Low, plus handling fees</td><td>FCL time + 1–2 weeks for consolidation</td><td>~10</td><td>Under ~13–15 CBM</td></tr>
+<tr><td>Rail (e.g. China–Europe)</td><td>Between ocean and air</td><td>~2–4 weeks</td><td>~25</td><td>Mid-value goods, inland Europe/Asia</td></tr>
+<tr><td>Road FTL / LTL</td><td>Medium per km</td><td>Days, regional</td><td>~90</td><td>Domestic and cross-border (e.g. Mexico–US)</td></tr>
+<tr><td>Air freight</td><td>High (often 5–15× ocean)</td><td>3–7 days door to door</td><td>~600</td><td>Urgent, high-value, light goods</td></tr>
+<tr><td>Express courier</td><td>Highest per kg</td><td>1–5 days door to door</td><td>~600+</td><td>Samples, parcels, small urgent orders</td></tr>
+</tbody></table>
+<p>Transit times are typical ranges and vary with routings, congestion and diversions (for example, Red Sea re-routings around the Cape of Good Hope add one to two weeks on Asia–Europe services). Emission factors are indicative averages; estimate your shipment with the <a href="{{root}}tools.html#tool-co2">CO₂ calculator</a>.</p>
+
+<h2>How each mode is priced</h2>
+<ul>
+<li><b>FCL</b> — per container (20ft, 40ft, 40ft high-cube) plus origin and destination charges, fuel (bunker) and security surcharges.</li>
+<li><b>LCL</b> — per cubic metre or per 1,000 kg, whichever is greater, plus consolidation and deconsolidation fees.</li>
+<li><b>Air</b> — per chargeable kilogram: the greater of actual weight and volumetric weight (L×W×H in cm ÷ 6,000). Check yours with the <a href="{{root}}tools.html#tool-vol">chargeable weight calculator</a>.</li>
+<li><b>Express</b> — per chargeable kilogram with a ÷5,000 divisor, plus fuel and remote-area surcharges.</li>
+<li><b>Road</b> — FTL per load or per mile/km; LTL by weight, freight class and distance, plus fuel surcharge indexed to diesel (see the <a href="{{root}}markets.html">market pulse</a>).</li>
+</ul>
+
+<h2>The hidden cost: inventory in transit</h2>
+<p>Slow modes tie up cash. Goods worth $200,000 spending 35 days at sea instead of 5 in the air carry 30 extra days of inventory. At a 25% annual carrying cost, that's about $200,000 × 25% × 30/365 ≈ <b>$4,100</b>. If the air premium is less than that — plus the value of avoiding stockouts — air can be the cheaper choice.</p>
+
+<h2>Rules of thumb for choosing</h2>
+<ol>
+<li><b>Default to ocean</b> for planned replenishment of anything that isn't urgent or very high-value.</li>
+<li><b>Switch LCL to FCL</b> once a shipment passes roughly 13–15 CBM; a 20ft container holds about 25–28 usable CBM.</li>
+<li><b>Use air</b> for launches, stockout recovery, high value-to-weight products and short-life goods.</li>
+<li><b>Consider rail</b> for China–Europe lanes when ocean is too slow and air too expensive, after checking current route and sanctions constraints.</li>
+<li><b>Split shipments:</b> send 10–20% by air to cover the gap and the rest by sea.</li>
+<li><b>Protect reliability:</b> slow but unreliable modes need more <a href="{{root}}guides/safety-stock-guide.html">safety stock</a>, which erodes their cost advantage.</li>
+</ol>
+
+<h2>Get the numbers for your shipment</h2>
+<p>Compare real rates for your lane: <a href="{{root}}get-quotes.html#freight">request freight quotes</a>, then feed them into the <a href="{{root}}tools.html#tool-lc">landed cost calculator</a> to see the full impact per unit.</p>

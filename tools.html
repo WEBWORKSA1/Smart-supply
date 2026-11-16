@@ -3,27 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>9 Free Supply Chain Calculators — EOQ, Safety Stock, Landed Cost, CBM | Smart.Supply</title>
-<meta name="description" content="Free supply chain and logistics calculators: EOQ, safety stock, reorder point, landed cost, CBM container load, chargeable weight, inventory turnover, CO2 emissions and supplier scorecard.">
+<title>10 Free Supply Chain Calculators — EOQ, Safety Stock, Landed Cost, CBM, FX | Smart.Supply</title>
+<meta name="description" content="Free supply chain and logistics calculators: EOQ, safety stock, reorder point, landed cost, CBM container load, chargeable weight, inventory turnover, CO2 emissions, supplier scorecard and a live currency converter.">
 <link rel="canonical" href="https://smart.supply/tools.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0b1530">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Smart.Supply">
-<meta property="og:title" content="9 Free Supply Chain Calculators — EOQ, Safety Stock, Landed Cost, CBM">
-<meta property="og:description" content="Free supply chain and logistics calculators: EOQ, safety stock, reorder point, landed cost, CBM container load, chargeable weight, inventory turnover, CO2 emissions and supplier scorecard.">
+<meta property="og:title" content="10 Free Supply Chain Calculators — EOQ, Safety Stock, Landed Cost, CBM, FX">
+<meta property="og:description" content="Free supply chain and logistics calculators: EOQ, safety stock, reorder point, landed cost, CBM container load, chargeable weight, inventory turnover, CO2 emissions, supplier scorecard and a live currency converter.">
 <meta property="og:url" content="https://smart.supply/tools.html">
 <meta property="og:image" content="https://smart.supply/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20260918">
+<link rel="stylesheet" href="assets/css/style.css?v=1cc099aa">
 <script>try{var t=localStorage.getItem("ss-theme");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t))}catch(e){}</script>
+<meta name="google-adsense-account" content="ca-pub-6620975821265271">
+<script>try{if(JSON.parse(localStorage.getItem("ss-consent"))!=="all")(window.adsbygoogle=window.adsbygoogle||[]).requestNonPersonalizedAds=1}catch(e){}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
 
 </head>
-<body data-root="">
-<script src="assets/js/layout.js?v=20260918"></script><script>SS_render("h")</script>
+<body data-root="" data-slidein>
+<div class="topbar"><a href="https://web.works/contact" target="_blank" rel="noopener">Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</a></div>
+<script src="assets/js/layout.js?v=1cc099aa"></script><script>SS_render("h")</script>
+
 <main id="main">
 
 <section class="page-hero">
@@ -32,7 +37,7 @@
     <h1>Free supply-chain <span class="grad-text">calculators</span></h1>
     <p>Instant results, formulas shown, shareable links. Built for buyers, planners and logistics teams.</p>
     <nav class="tool-nav mt2" aria-label="Calculators">
-      <a href="#tool-eoq">EOQ</a><a href="#tool-ss">Safety stock</a><a href="#tool-rop">Reorder point</a><a href="#tool-lc">Landed cost</a><a href="#tool-cbm">CBM / container</a><a href="#tool-vol">Chargeable weight</a><a href="#tool-turn">Inventory turnover</a><a href="#tool-co2">CO₂ emissions</a><a href="#tool-score">Supplier scorecard</a>
+      <a href="#tool-eoq">EOQ</a><a href="#tool-ss">Safety stock</a><a href="#tool-rop">Reorder point</a><a href="#tool-lc">Landed cost</a><a href="#tool-cbm">CBM / container</a><a href="#tool-vol">Chargeable weight</a><a href="#tool-turn">Inventory turnover</a><a href="#tool-co2">CO₂ emissions</a><a href="#tool-score">Supplier scorecard</a><a href="#tool-fx">Currency converter</a>
     </nav>
   </div>
 </section>
@@ -185,6 +190,20 @@
   </div>
 </article>
 
+<article class="card tool" id="tool-fx">
+  <h2>💱 Currency Converter (live)</h2>
+  <p class="muted">Convert supplier quotes with today's European Central Bank reference rates. Banks and payment providers add a margin, so budget 1–3% on top.</p>
+  <div class="tool-body">
+    <div class="form-grid">
+      <div class="field full"><label for="fx-amt">Amount</label><input id="fx-amt" type="number" value="10000" min="0"></div>
+      <div class="field"><label for="fx-from">From</label><select id="fx-from"><option>USD</option><option>EUR</option><option selected>CNY</option><option>INR</option><option>GBP</option><option>CAD</option><option>MXN</option><option>JPY</option><option>KRW</option><option>THB</option><option>TRY</option><option>PLN</option><option>AUD</option><option>SGD</option><option>HKD</option><option>BRL</option></select></div>
+      <div class="field"><label for="fx-to">To</label><select id="fx-to"><option selected>USD</option><option>EUR</option><option>CNY</option><option>INR</option><option>GBP</option><option>CAD</option><option>MXN</option><option>JPY</option><option>KRW</option><option>THB</option><option>TRY</option><option>PLN</option><option>AUD</option><option>SGD</option><option>HKD</option><option>BRL</option></select></div>
+      <div class="formula" style="grid-column:1/-1">Converted = amount × reference rate (from → to)</div>
+    </div>
+    <div><div class="result" id="fx-out"></div><a class="btn btn-sm btn-ghost mt1" href="markets.html">See the market pulse →</a></div>
+  </div>
+</article>
+
 </div></section>
 
 <section class="section-sm">
@@ -199,9 +218,10 @@
 
 </main>
 <script>SS_render("f")</script>
-<script src="assets/js/config.js?v=20260918"></script>
-<script src="assets/js/data.js?v=20260918"></script>
-<script src="assets/js/search-index.js?v=20260918"></script>
-<script src="assets/js/app.js?v=20260918"></script>
+<script src="assets/js/config.js?v=1cc099aa"></script>
+<script src="assets/js/data.js?v=1cc099aa"></script>
+<script src="assets/js/daily.js?v=82320a10"></script>
+<script src="assets/js/search-index.js?v=1cc099aa"></script>
+<script src="assets/js/app.js?v=1cc099aa"></script>
 </body>
 </html>

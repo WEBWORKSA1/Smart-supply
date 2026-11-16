@@ -1,0 +1,34 @@
+<!--
+title: Supply Chain Market Pulse — Diesel, Freight Indices, Supply-Chain Pressure & FX
+description: A daily-updated dashboard of the indicators buyers and logistics teams watch: US diesel, WTI crude, NY Fed supply-chain pressure, ocean freight prices, freight volumes and exchange rates.
+nav: markets
+ticker: 1
+daily: 1
+slidein: 1
+-->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Home</a> › Market pulse</div>
+    <span class="eyebrow">📈 Updated {{daily_updated}}</span>
+    <h1 class="mt1">Supply-chain <span class="grad-text">market pulse</span></h1>
+    <p>The handful of numbers that move freight costs, landed costs and lead times — refreshed daily from public sources (FRED, the New York Fed and ECB reference rates) with plain-English notes on what each one means for buyers.</p>
+  </div>
+</section>
+<section class="section-sm">
+  <div class="container">
+    {{market_cards}}
+    <div class="ad-slot" data-ad="inFeed"></div>
+    <div class="grid g2 mt2" style="align-items:start">
+      <div class="card"><h2>Exchange rates</h2>{{fx_table}}</div>
+      <div class="card prose" style="max-width:none">
+        <h2>How to use these indicators</h2>
+        <p><b>Fuel first.</b> Diesel feeds truckload and LTL fuel surcharges within one to four weeks, and crude oil drives bunker surcharges on ocean freight. When both rise, budget higher inland and ocean costs on your next shipments.</p>
+        <p><b>Pressure and prices.</b> A positive Global Supply Chain Pressure Index means delivery times and backlogs are tighter than normal. Combined with rising ocean freight producer prices, it signals a good moment to lock in contract rates and add buffer stock.</p>
+        <p><b>Volumes.</b> The Cass and BTS freight indexes show whether freight demand is growing. Falling volumes usually give shippers more negotiating power with carriers.</p>
+        <p><b>Currency.</b> A stronger supplier currency raises your purchase price even when the quote doesn't change. Re-run the <a href="tools.html#tool-lc">landed cost calculator</a> with today's rate before you confirm a purchase order.</p>
+      </div>
+    </div>
+    <div class="band mt3"><div class="grid g2" style="align-items:center"><div><h2 style="color:#fff">Turn market moves into savings</h2><p>Post one RFQ and compare suppliers and freight options while rates are favourable.</p></div><div class="flex" style="justify-content:flex-end"><a class="btn btn-lime btn-lg" href="get-quotes.html">Get free quotes</a><a class="btn btn-ghost btn-lg" href="get-quotes.html#freight">Freight quotes</a></div></div></div>
+    <p class="small muted mt2">Data: Federal Reserve Bank of St. Louis (FRED) series GASDESW, DCOILWTICO, PCU483111483111, FRGSHPUSM649NCIS and TSIFRGHT; New York Fed GSCPI; ECB reference rates via Frankfurter. Indicators are published on their own schedules (weekly or monthly), so the latest point may be days or weeks old. For information only — not financial advice.</p>
+  </div>
+</section>

@@ -1,4 +1,4 @@
-# Competitive Research — 32 Niche Sites (Sept 2026)
+# Competitive Research — 45 Niche Sites (Sept–Nov 2026)
 
 | # | Site | Feature adopted on Smart.Supply |
 |---|---|---|
@@ -34,6 +34,25 @@
 | 30 | Coupa | Maturity self-assessment as lead magnet |
 | 31 | Kinaxis | Trust center / credibility section |
 | 32 | o9 Solutions | Dual CTA: low-commitment "Take a tour" + high-intent "Talk to expert" |
+| 33 | gCaptain | Maritime news feed in the daily brief; short "why it matters" framing |
+| 34 | The Loadstar | Topic tags on every news item (ocean, air, trucking, tariffs) |
+| 35 | Journal of Commerce (JOC) | Market-data cards beside news; date-stamped "updated" labels |
+| 36 | Splash247 | Compact, scannable headline list with source attribution |
+| 37 | Freightos (FBX) | Freight-index cards with sparkline + week-on-week change |
+| 38 | Drewry | Weekly index narrative ("how to use these indicators") under each chart |
+| 39 | FRED (St. Louis Fed) | Public, citable data series powering the Market Pulse |
+| 40 | NY Fed GSCPI | Supply-chain pressure gauge with plain-English interpretation |
+| 41 | ImportYeti | Free value before sign-up; import how-to content funnel |
+| 42 | Sourcify | "How to import from China" style long-form guides with CTAs to sourcing help |
+| 43 | QIMA | Inspection & quality as a directory category; QC steps in guides |
+| 44 | Europages / Kompass | Country + company-type filters in the directory |
+| 45 | Maker's Row | Small-brand manufacturing onboarding; quote-request from each listing |
+
+## v2 changes driven by research (Nov 2026)
+- Daily auto-updated brief, market pulse, ticker, FX and closures countdown (sites 33–40).
+- Demo listings replaced with 44 real companies and outbound links; 14 categories (sites 6, 8, 43–45).
+- Six new long-form guides for AdSense content depth (sites 41–42).
+- Trademark/copyright, editorial-policy and corrections pages; no ads on form pages (AdSense policy).
 
 Unreachable directly: SAP Ariba (403), Spend Matters & Procurious (JS-only — used secondary sources), Anvyl (now redirects to Sage).
 

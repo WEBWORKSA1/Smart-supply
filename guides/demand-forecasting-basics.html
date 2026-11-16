@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demand Forecasting Basics: Methods, a Worked Example and How to Measure Accuracy | Smart.Supply</title>
+<meta name="description" content="Learn the core demand forecasting methods — naive, moving average and exponential smoothing — with a worked example, plus how to handle seasonality and measure accuracy with MAPE and bias.">
+<link rel="canonical" href="https://smart.supply/guides/demand-forecasting-basics.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b1530">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Smart.Supply">
+<meta property="og:title" content="Demand Forecasting Basics: Methods, a Worked Example and How to Measure Accuracy">
+<meta property="og:description" content="Learn the core demand forecasting methods — naive, moving average and exponential smoothing — with a worked example, plus how to handle seasonality and measure accuracy with MAPE and bias.">
+<meta property="og:url" content="https://smart.supply/guides/demand-forecasting-basics.html">
+<meta property="og:image" content="https://smart.supply/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css?v=1cc099aa">
+<script>try{var t=localStorage.getItem("ss-theme");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t))}catch(e){}</script>
+<meta name="google-adsense-account" content="ca-pub-6620975821265271">
+<script>try{if(JSON.parse(localStorage.getItem("ss-consent"))!=="all")(window.adsbygoogle=window.adsbygoogle||[]).requestNonPersonalizedAds=1}catch(e){}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Demand Forecasting Basics: Methods, a Worked Example and How to Measure Accuracy", "description": "Learn the core demand forecasting methods — naive, moving average and exponential smoothing — with a worked example, plus how to handle seasonality and measure accuracy with MAPE and bias.", "datePublished": "2026-11-16", "dateModified": "2026-11-16", "mainEntityOfPage": "https://smart.supply/guides/demand-forecasting-basics.html", "author": {"@type": "Organization", "name": "Smart.Supply Editorial"}, "publisher": {"@type": "Organization", "name": "Smart.Supply", "url": "https://smart.supply"}}</script>
+</head>
+<body data-root="../" data-slidein>
+<div class="topbar"><a href="https://web.works/contact" target="_blank" rel="noopener">Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</a></div>
+<script src="../assets/js/layout.js?v=1cc099aa"></script><script>SS_render("h")</script>
+
+<main id="main">
+<section class="page-hero"><div class="container">
+<div class="breadcrumbs"><a href="../index.html">Home</a> › <a href="../guides.html">Guides</a> › Planning</div>
+<span class="tag tag-brand">Planning</span>
+<h1 class="mt1">Demand Forecasting Basics: Methods, a Worked Example and How to Measure Accuracy</h1>
+<div class="article-meta"><span>By Smart.Supply Editorial</span><span>Updated 2026-11-16</span><span>⏱ 3 min read</span><button class="btn btn-sm btn-ghost" data-share-page>Share</button></div>
+<p>Learn the core demand forecasting methods — naive, moving average and exponential smoothing — with a worked example, plus how to handle seasonality and measure accuracy with MAPE and bias.</p>
+</div></section>
+<section class="section-sm"><div class="container article-layout">
+<article class="prose">
+<p>Every purchasing decision is a bet on future demand. A good forecast doesn't need to be perfect — it needs to be <b>unbiased, regularly updated and connected to buying decisions</b> such as reorder points and order quantities. This guide covers the methods most small and mid-sized teams actually use.</p>
+
+<h2 id="start-with-clean-history">Start with clean history</h2>
+<p>Forecast from demand, not just sales: add back orders you couldn't fill because of stockouts, and remove one-off events such as a single bulk order or a promotion you won't repeat. Twelve to twenty-four months of weekly or monthly data is enough to start.</p>
+
+<h2 id="three-simple-methods">Three simple methods</h2>
+<table><thead><tr><th>Method</th><th>How it works</th><th>Use when</th></tr></thead><tbody>
+<tr><td>Naive</td><td>Next period = last period</td><td>A baseline to beat</td></tr>
+<tr><td>Moving average</td><td>Average of the last <i>n</i> periods</td><td>Stable demand, no trend</td></tr>
+<tr><td>Exponential smoothing</td><td>New forecast = α × latest actual + (1 − α) × previous forecast</td><td>Most SKUs — responsive yet smooth</td></tr>
+</tbody></table>
+<p>The smoothing constant α (between 0 and 1) controls responsiveness. Around 0.1–0.3 suits most products; higher values react faster but chase noise.</p>
+
+<div class="ad-slot" data-ad="inArticle"></div><h2 id="worked-example-exponential-smoothing">Worked example: exponential smoothing</h2>
+<p>Monthly demand: January 100, February 120, March 110, April 130. Use α = 0.3 and start with January's actual as the first forecast.</p>
+<ul>
+<li>February forecast = 100</li>
+<li>March forecast = 0.3 × 120 + 0.7 × 100 = <b>106</b></li>
+<li>April forecast = 0.3 × 110 + 0.7 × 106 = <b>107.2</b></li>
+<li>May forecast = 0.3 × 130 + 0.7 × 107.2 = <b>114.0</b></li>
+</ul>
+<p>Absolute percentage errors: February 16.7%, March 3.6%, April 17.5%. The mean absolute percentage error (MAPE) is about <b>12.6%</b>. Every forecast here was below actual, so the method is lagging an upward trend — a sign to try a trend-adjusted method (Holt's double exponential smoothing) or a higher α.</p>
+
+<h2 id="trend-and-seasonality">Trend and seasonality</h2>
+<p>If demand grows steadily, add a trend term (Holt's method). If it repeats a yearly pattern — holidays, weather, back-to-school — use seasonal indices: average each month's demand as a ratio of the yearly average, forecast the deseasonalised level, then multiply back. Holt-Winters combines level, trend and seasonality and is built into most planning tools and spreadsheets.</p>
+
+<h2 id="measuring-accuracy">Measuring accuracy</h2>
+<ul>
+<li><b>MAPE</b> — average absolute percentage error. Easy to explain, but distorted by very low-volume items.</li>
+<li><b>Weighted MAPE (WMAPE)</b> — total absolute error ÷ total actual demand. Better for comparing across many SKUs.</li>
+<li><b>Bias</b> — the average of (forecast − actual). Persistent positive bias builds excess stock; persistent negative bias causes stockouts. Bias is often more damaging than random error.</li>
+<li><b>Forecast value added</b> — compare your forecast's accuracy with the naive method. If manual overrides don't beat it, stop making them.</li>
+</ul>
+
+<h2 id="connect-the-forecast-to-decisions">Connect the forecast to decisions</h2>
+<ol>
+<li>Use the forecast as average daily demand in the <a href="../tools.html#tool-rop">reorder point</a> calculation.</li>
+<li>Use the standard deviation of forecast error to size <a href="../guides/safety-stock-guide.html">safety stock</a> — a better input than raw demand variability.</li>
+<li>Use the annual forecast in <a href="../guides/eoq-economic-order-quantity.html">EOQ</a>.</li>
+<li>Share the forecast with key suppliers so they can plan capacity, especially before peak season and factory holidays.</li>
+</ol>
+<p>Segment first with <a href="../guides/abc-analysis-inventory.html">ABC analysis</a>: spend modelling effort on A items and let simple methods run C items.</p>
+
+<div class="band mt3"><h3 style="color:#fff">Ready to put this into practice?</h3><p>Post a free RFQ and get competing quotes from vetted suppliers — or run the numbers with our free calculators.</p><div class="flex"><a class="btn btn-lime" href="../get-quotes.html">Get free quotes</a><a class="btn btn-ghost" href="../tools.html">Open calculators</a></div></div>
+</article>
+<aside><div class="toc"><div class="card"><b>On this page</b><ol class="mt1"><li><a href="#start-with-clean-history">Start with clean history</a></li><li><a href="#three-simple-methods">Three simple methods</a></li><li><a href="#worked-example-exponential-smoothing">Worked example: exponential smoothing</a></li><li><a href="#trend-and-seasonality">Trend and seasonality</a></li><li><a href="#measuring-accuracy">Measuring accuracy</a></li><li><a href="#connect-the-forecast-to-decisions">Connect the forecast to decisions</a></li></ol></div>
+<div class="card mt2"><b>📬 The Smart Supply Brief</b><p class="small muted">Weekly sourcing, freight &amp; tariff intel.</p><form data-form="newsletter-guide" data-thanks="Subscribed — welcome aboard!"><label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label><input type="email" name="email" placeholder="Work email" required aria-label="Email"><button class="btn btn-accent btn-block mt1" type="submit">Subscribe</button></form></div>
+<div class="ad-slot ad-sidebar" data-ad="sidebar" style="padding:0"></div></div></aside>
+</div></section>
+</main>
+<script>SS_render("f")</script>
+<script src="../assets/js/config.js?v=1cc099aa"></script>
+<script src="../assets/js/data.js?v=1cc099aa"></script>
+<script src="../assets/js/daily.js?v=82320a10"></script>
+<script src="../assets/js/search-index.js?v=1cc099aa"></script>
+<script src="../assets/js/app.js?v=1cc099aa"></script>
+</body>
+</html>
