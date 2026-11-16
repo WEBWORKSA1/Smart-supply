@@ -19,13 +19,35 @@ date: 2026-09-18      (optional)
 
 Usage:  python3 tools/build.py
 """
-import json, os, re, html, datetime
+import json, os, re, html, datetime, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "src", "pages")
 SITE = "https://smart.supply"
 TODAY = datetime.date.today().isoformat()
-V = TODAY.replace("-", "")  # cache-buster
+LASTMOD = "2026-11-16"  # default lastmod for evergreen pages (override with `updated:` front matter)
+ADSENSE = "ca-pub-6620975821265271"
+OWNER_CONTACT = "https://web.works/contact"
+
+
+def asset_version():
+    h = hashlib.sha1()
+    for f in ["assets/css/style.css", "assets/js/app.js", "assets/js/data.js", "assets/js/config.js", "assets/js/layout.js", "assets/js/search-index.js"]:
+        fp = os.path.join(ROOT, f)
+        if os.path.exists(fp):
+            h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+
+def load_daily():
+    fp = os.path.join(ROOT, "assets", "js", "daily.js")
+    if not os.path.exists(fp):
+        return {}
+    raw = open(fp, encoding="utf-8").read()
+    return json.loads(raw[raw.index("=") + 1:].strip().rstrip(";"))
+
+
+V = "1"  # set in build()
 
 MENU = [
     ("Source", [
@@ -40,14 +62,18 @@ MENU = [
         ("tools.html#tool-lc", "Landed Cost", "True cost per unit, duty included"),
         ("tools.html#tool-cbm", "Container Load (CBM)", "20ft / 40ft / 40HC fit"),
         ("tools.html#tool-vol", "Chargeable Weight", "Air & courier volumetric"),
-        ("tools.html", "All 9 tools →", "Reorder point, turnover, CO₂, scorecard"),
+        ("tools.html#tool-fx", "Currency Converter", "Live ECB exchange rates"),
+        ("tools.html", "All 10 tools →", "Reorder point, turnover, CO₂, scorecard"),
     ]),
     ("Learn", [
         ("guides.html", "Guides", "Playbooks for sourcing & logistics"),
+        ("news.html", "Today's Brief", "Daily supply-chain headlines, explained"),
+        ("markets.html", "Market Pulse", "Diesel, freight indices, FX — updated daily"),
         ("glossary.html", "Glossary", "85+ supply-chain terms, A–Z"),
         ("software.html", "Software Directory", "ERP, WMS, TMS, procurement, planning"),
         ("guides/incoterms-2020-explained.html", "Incoterms 2020", "Who pays, who carries risk"),
     ]),
+    ("news.html", None),
     ("videos.html", None),
     ("Community", [
         ("contests.html", "Contests & Prizes", "Smart Sourcing Challenge"),
@@ -57,7 +83,7 @@ MENU = [
     ]),
     ("advertise.html", None),
 ]
-LABELS = {"videos.html": "Watch", "advertise.html": "Advertise"}
+LABELS = {"videos.html": "Watch", "advertise.html": "Advertise", "news.html": "Today"}
 
 
 def parse(path):
@@ -124,9 +150,10 @@ def footer(r):
     <div><h4>Source</h4><ul><li><a href="{r}get-quotes.html">Post an RFQ</a></li><li><a href="{r}suppliers.html">Supplier directory</a></li><li><a href="{r}get-quotes.html#freight">Freight quotes</a></li><li><a href="{r}list-your-company.html">List your company</a></li><li><a href="{r}software.html">Software directory</a></li></ul></div>
     <div><h4>Tools &amp; Learn</h4><ul><li><a href="{r}tools.html">Calculators</a></li><li><a href="{r}guides.html">Guides</a></li><li><a href="{r}glossary.html">Glossary</a></li><li><a href="{r}videos.html">Video hub</a></li></ul></div>
     <div><h4>Community</h4><ul><li><a href="{r}contests.html">Contests &amp; prizes</a></li><li><a href="{r}careers.html">Jobs &amp; talent</a></li><li><a href="{r}support.html">Support us</a></li><li><a href="{r}advertise.html">Advertise / sponsor</a></li></ul></div>
-    <div><h4>Company</h4><ul><li><a href="{r}about.html">About</a></li><li><a href="{r}contact.html">Contact</a></li><li><a href="{r}privacy.html">Privacy</a></li><li><a href="{r}terms.html">Terms</a></li><li><a href="{r}disclaimer.html">Disclaimer &amp; affiliates</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="{r}about.html">About</a></li><li><a href="{r}news.html">Today's brief</a></li><li><a href="{r}markets.html">Market pulse</a></li><li><a href="{r}contact.html">Contact</a></li><li><a href="{r}privacy.html">Privacy</a></li><li><a href="{r}terms.html">Terms</a></li><li><a href="{r}disclaimer.html">Disclaimer &amp; affiliates</a></li></ul></div>
   </div>
-  <div class="footer-bottom"><span>© <span data-year>2026</span> Smart.Supply. All rights reserved.</span><span>Independent editorial — sponsors never influence rankings or advice.</span></div>
+  <div class="footer-bottom"><span>© <span data-year>2026</span> Smart.Supply™. All rights reserved. · <a href="{r}legal.html">Trademark &amp; copyright</a> · <a href="{r}editorial.html">Editorial policy</a></span><span>Independent editorial — sponsors never influence rankings or advice.</span></div>
+  <p class="legal-note">Smart.Supply™ and the Smart.Supply logo are trademarks of the site owner. Third-party names, logos, headlines and videos belong to their respective owners and are used for identification, reference or via official embeds; no endorsement or affiliation is implied. Content on this site is for general information only and is not legal, customs, tax or financial advice.</p>
 </div></footer>
 <div class="mobile-cta"><a class="btn btn-accent" style="flex:1" href="{r}get-quotes.html">Get Free Quotes</a><a class="btn btn-ghost" href="{r}tools.html">Tools</a></div>
 <button class="icon-btn to-top" aria-label="Back to top">↑</button>
@@ -174,6 +201,90 @@ def guide_layout(meta, body):
 </div></section>'''
 
 
+def layout_js(R):
+    return ("/* Generated by tools/build.py — edit header()/footer() there, not here. */\n"
+            "window.SS_LAYOUT=" + json.dumps({"h": header(R, ""), "f": footer(R)}, ensure_ascii=False) + ";\n"
+            "function SS_render(k){var r=document.body.getAttribute('data-root')||'';var s=document.currentScript;"
+            "s.insertAdjacentHTML('beforebegin',SS_LAYOUT[k].split('__ROOT__').join(r));"
+            "if(k==='h'){var here=location.pathname.split('/').pop()||'index.html';"
+            "document.querySelectorAll('.menu>li>a').forEach(function(a){if(a.getAttribute('href').split('/').pop()===here)a.classList.add('active')});}}\n")
+
+
+def esc(x):
+    return html.escape(str(x if x is not None else ""))
+
+
+def nice_date(d):
+    try:
+        return datetime.date.fromisoformat(d[:10]).strftime("%b %d, %Y").replace(" 0", " ")
+    except Exception:
+        return d or ""
+
+
+def sparkline(points, w=240, h=56):
+    vals = [p[1] for p in points if p[1] is not None]
+    if len(vals) < 2:
+        return ""
+    lo, hi = min(vals), max(vals)
+    rng = (hi - lo) or 1
+    xs = [i * (w / (len(vals) - 1)) for i in range(len(vals))]
+    ys = [h - 4 - (v - lo) / rng * (h - 8) for v in vals]
+    line = " ".join(f"{x:.1f},{y:.1f}" for x, y in zip(xs, ys))
+    return (f'<svg viewBox="0 0 {w} {h}" preserveAspectRatio="none" role="img" aria-label="Trend">'
+            f'<polygon class="sparkfill" points="0,{h} {line} {w},{h}"/><polyline class="spark" points="{line}"/></svg>')
+
+
+def render_generated(body, d):
+    if "{{" not in body:
+        return body
+    news = d.get("news", [])
+    upd = nice_date(d.get("updated", ""))
+    body = body.replace("{{daily_updated}}", esc(upd))
+    if "{{news_list}}" in body:
+        out, cur = [], None
+        for n in news:
+            day = (n.get("date") or "")[:10]
+            if day != cur:
+                cur = day
+                out.append(f'<h2 class="mt3">{esc(nice_date(day) if day else "Recent")}</h2>')
+            why = f'<p class="why"><b>Why it matters:</b> {esc(n["why"])}</p>' if n.get("why") else ""
+            out.append(f'<article class="news-item"><div class="flex small muted"><span class="tag tag-brand">{esc(n.get("topic", "News"))}</span><span>{esc(n.get("source"))}</span></div>'
+                       f'<h3><a href="{esc(n.get("url"))}" target="_blank" rel="noopener nofollow">{esc(n.get("title"))}</a></h3>'
+                       f'<p class="muted mb0">{esc(n.get("summary", ""))}</p>{why}</article>')
+        body = body.replace("{{news_list}}", '<div class="news-list">' + "".join(out) + "</div>" if out else '<p class="muted">The brief is being refreshed — check back shortly.</p>')
+    if "{{news_themes}}" in body:
+        counts = {}
+        for n in news:
+            counts[n.get("topic", "News")] = counts.get(n.get("topic", "News"), 0) + 1
+        chips = "".join(f'<span class="tag">{esc(k)} · {v}</span>' for k, v in sorted(counts.items(), key=lambda x: -x[1]))
+        srcs = sorted({n.get("source") for n in news if n.get("source")})
+        body = body.replace("{{news_themes}}", f'<div class="checks">{chips}</div><p class="small muted mt1">{len(news)} stories from {len(srcs)} sources: {esc(", ".join(srcs))}.</p>')
+    if "{{market_cards}}" in body:
+        cards = []
+        for m in d.get("market", []):
+            pts = m.get("points", [])
+            if not pts:
+                continue
+            last, prev = pts[-1][1], (pts[-2][1] if len(pts) > 1 else None)
+            ch = ""
+            if prev:
+                pct = (last - prev) / abs(prev) * 100
+                ch = f'<span class="{"up" if pct >= 0 else "down"}">{"▲" if pct >= 0 else "▼"} {abs(pct):.1f}%</span> vs prior'
+            dec = 3 if abs(last) < 10 else (2 if abs(last) < 1000 else 0)
+            src = m.get("source_url") or f"https://fred.stlouisfed.org/series/{m['id']}"
+            cards.append(f'<div class="card mcard"><div class="small muted">{esc(m.get("name"))}</div><div class="v">{last:,.{dec}f}</div>'
+                         f'<div class="small">{ch}</div>{sparkline(pts)}<div class="small muted">{esc(m.get("unit", ""))} · latest {esc(nice_date(str(pts[-1][0])))} · '
+                         f'<a href="{esc(src)}" target="_blank" rel="noopener nofollow">source</a></div>'
+                         f'<p class="small mt1 mb0">{esc(m.get("note", ""))}</p></div>')
+        body = body.replace("{{market_cards}}", '<div class="grid g3">' + "".join(cards) + "</div>")
+    if "{{fx_table}}" in body:
+        fx = d.get("fx", {})
+        rows = "".join(f"<tr><td>USD → {esc(k)}</td><td>{v:,.4f}</td><td>{(1 / v):,.5f}</td></tr>" for k, v in fx.get("rates", {}).items() if v)
+        body = body.replace("{{fx_table}}", f'<div class="table-wrap"><table class="table"><thead><tr><th>Pair</th><th>1 USD buys</th><th>USD per unit</th></tr></thead><tbody>{rows}</tbody></table></div>'
+                            f'<p class="small muted">ECB reference rates dated {esc(nice_date(fx.get("date", "")))}, via Frankfurter. Live rates: <a href="{{{{root}}}}tools.html#tool-fx">currency converter</a>.</p>')
+    return body
+
+
 def schema_for(meta, url, body):
     t = meta.get("schema", "")
     blocks = []
@@ -191,7 +302,13 @@ def schema_for(meta, url, body):
 
 
 def build():
-    pages, index = [], []
+    global V
+    daily = load_daily()
+    DV = hashlib.sha1(json.dumps(daily, sort_keys=True).encode()).hexdigest()[:8]
+    pages, index, lastmods = [], [], {}
+    R0 = "__ROOT__"
+    open(os.path.join(ROOT, "assets", "js", "layout.js"), "w", encoding="utf-8").write(layout_js(R0))
+    V = asset_version()
     for dp, _, files in os.walk(SRC):
         for f in sorted(files):
             if f.endswith(".html"):
@@ -211,7 +328,14 @@ def build():
         if meta.get("layout") == "guide":
             meta.setdefault("schema", "article")
             body = guide_layout(meta, body)
+        if meta.get("layout") == "guide":
+            meta.setdefault("slidein", "1")
+        body = render_generated(body, daily)
         body = body.replace("{{root}}", r)
+        noads = url_path == "404.html" or meta.get("noads")
+        adsense = "" if noads else (f'<meta name="google-adsense-account" content="{ADSENSE}">\n'
+                   '<script>try{if(JSON.parse(localStorage.getItem("ss-consent"))!=="all")(window.adsbygoogle=window.adsbygoogle||[]).requestNonPersonalizedAds=1}catch(e){}</script>\n'
+                   f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE}" crossorigin="anonymous"></script>\n')
         doc = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -234,16 +358,19 @@ def build():
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{r}assets/css/style.css?v={V}">
 <script>try{{var t=localStorage.getItem("ss-theme");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t))}}catch(e){{}}</script>
-{extra}{schema_for(meta, url, body)}
+{adsense}{extra}{schema_for(meta, url, body)}
 </head>
-<body data-root="{r}"{" data-no-exit" if meta.get("noexit") else ""}>
+<body data-root="{r}"{" data-no-exit" if meta.get("noexit") else ""}{" data-slidein" if meta.get("slidein") else ""}>
+<div class="topbar"><a href="{OWNER_CONTACT}" target="_blank" rel="noopener">Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</a></div>
 <script src="{r}assets/js/layout.js?v={V}"></script><script>SS_render("h")</script>
+{'<div class="ticker" data-ticker aria-label="Market ticker"></div>' if meta.get("ticker") else ""}
 <main id="main">
 {body}
 </main>
 <script>SS_render("f")</script>
 <script src="{r}assets/js/config.js?v={V}"></script>
 <script src="{r}assets/js/data.js?v={V}"></script>
+<script src="{r}assets/js/daily.js?v={DV}"></script>
 <script src="{r}assets/js/search-index.js?v={V}"></script>
 <script src="{r}assets/js/app.js?v={V}"></script>
 </body>
@@ -255,15 +382,7 @@ def build():
         if url_path != "404.html":
             heads = " ".join(re.sub("<.*?>", "", h) for h in re.findall(r"<h[23][^>]*>(.*?)</h[23]>", body, re.S))
             index.append({"t": title, "u": url_path, "d": desc, "k": heads[:400]})
-    # Shared header/footer shell, rendered synchronously by layout.js (keeps every page small)
-    R = "__ROOT__"
-    js = ("/* Generated by tools/build.py — edit header()/footer() there, not here. */\n"
-          "window.SS_LAYOUT=" + json.dumps({"h": header(R, ""), "f": footer(R)}, ensure_ascii=False) + ";\n"
-          "function SS_render(k){var r=document.body.getAttribute('data-root')||'';var s=document.currentScript;"
-          "s.insertAdjacentHTML('beforebegin',SS_LAYOUT[k].split('__ROOT__').join(r));"
-          "if(k==='h'){var here=location.pathname.split('/').pop()||'index.html';"
-          "document.querySelectorAll('.menu>li>a').forEach(function(a){if(a.getAttribute('href').split('/').pop()===here)a.classList.add('active')});}}\n")
-    open(os.path.join(ROOT, "assets", "js", "layout.js"), "w", encoding="utf-8").write(js)
+            lastmods[url_path] = (daily.get("updated", LASTMOD)[:10] if meta.get("daily") else meta.get("updated", LASTMOD))
     # Tools as individual search entries
     for tid, name in [("eoq", "EOQ calculator"), ("ss", "Safety stock calculator"), ("rop", "Reorder point calculator"), ("lc", "Landed cost calculator"),
                       ("cbm", "CBM container load calculator"), ("vol", "Volumetric / chargeable weight calculator"), ("turn", "Inventory turnover calculator"),
@@ -277,7 +396,7 @@ def build():
             continue
         loc = SITE + "/" + ("" if it["u"] == "index.html" else it["u"])
         pr = "1.0" if it["u"] == "index.html" else ("0.9" if it["u"] in ("get-quotes.html", "tools.html", "suppliers.html") else "0.7")
-        sm.append(f"  <url><loc>{loc}</loc><lastmod>{TODAY}</lastmod><priority>{pr}</priority></url>")
+        sm.append(f"  <url><loc>{loc}</loc><lastmod>{lastmods.get(it['u'], LASTMOD)}</lastmod><priority>{pr}</priority></url>")
     sm.append("</urlset>")
     open(os.path.join(ROOT, "sitemap.xml"), "w").write("\n".join(sm) + "\n")
     print(f"Built {len(pages)} pages.")
