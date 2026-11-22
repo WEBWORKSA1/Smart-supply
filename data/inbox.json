@@ -1,25 +1,359 @@
 {
  "news": [
-  {"title":"Iran Intensifies Hormuz Tanker Attacks Just as Oil Prices Slide","url":"https://gcaptain.com/iran-intensifies-hormuz-tanker-attacks-just-as-oil-prices-slide/","source":"gCaptain","date":"2026-11-19","summary":"Strikes on tankers transiting the Strait of Hormuz are becoming more frequent even as crude prices ease on plentiful Middle East supply.","why":"Falling oil prices may not translate into cheaper freight while war-risk premiums and tanker security costs keep climbing on Gulf routes."},
-  {"title":"TARA GAS Burning Off Oman as Another Tanker Attack Leaves 11 Injured","url":"https://gcaptain.com/tara-gas-burning-off-oman-as-another-tanker-attack-leaves-11-injured/","source":"gCaptain","date":"2026-11-18","summary":"An LPG carrier hit near the Strait of Hormuz was still on fire and drifting, according to a fresh navigational warning, after another attack that injured 11 people.","why":"Importers relying on Gulf-sourced LPG and petrochemicals should expect continued delays, rerouting and higher insurance surcharges."},
-  {"title":"As logistics operators and shippers look to 2027, high costs, constant disruption, and uncertainty roil their plans","url":"https://www.dcvelocity.com/transportation/as-logistics-operators-and-shippers-look-to-2027-high-costs-constant-disruption-and-uncertainty-roil-their-plans","source":"DC Velocity","date":"2026-11-19","summary":"Armstrong & Associates projects U.S. third-party logistics revenue climbing about 6.7% to roughly $375 billion in 2027, against a backdrop of record diesel and Gulf and Red Sea disruptions adding up to two weeks to some transits.","why":"Shippers budgeting for 2027 should plan for sustained cost inflation from 3PLs and longer ocean lead times rather than a return to normal."},
-  {"title":"DOL sticks with independent contractor proposal, trucking applauds","url":"https://www.freightwaves.com/news/dol-sticks-with-independent-contractor-proposal-trucking-applauds","source":"FreightWaves","date":"2026-11-19","summary":"The Labor Department finalized its independent contractor rule largely as proposed in February, with the change taking effect 60 days after publication and drawing support from major trucking groups.","why":"Clearer rules on owner-operator status reduce legal risk for carriers that rely on contractors, which helps keep truckload capacity and pricing stable."},
-  {"title":"Panama Files Criminal Complaint Tied to CK Hutchison Ports Dispute","url":"https://gcaptain.com/panama-files-criminal-complaint-tied-to-ck-hutchison-ports-dispute/","source":"gCaptain","date":"2026-11-19","summary":"Panama's comptroller has taken legal action over irregularities an audit found in a state concession held by a CK Hutchison port subsidiary.","why":"Escalating legal fights over terminals at both ends of the Panama Canal add uncertainty for shippers routing cargo through those gateways."},
-  {"title":"Honda invests $462M in Alabama plant to boost production","url":"https://www.supplychaindive.com/news/honda-invests-462m-in-alabama-plant-to-boost-production/875189/","source":"Supply Chain Dive","date":"2026-11-19","summary":"Honda is putting $462 million into its Alabama assembly plant to expand output of its best-selling models.","why":"More U.S.-built vehicle volume signals growing demand for local parts suppliers and a continued shift away from imported components."},
-  {"title":"How Home Depot built the missing logistics piece for its Pro business","url":"https://www.supplychaindive.com/news/how-home-depot-built-the-missing-logistics-piece-for-its-pro-business/874331/","source":"Supply Chain Dive","date":"2026-11-19","summary":"Home Depot combined flatbed distribution centers, acquisitions and new technology to give contractor customers faster, more reliable jobsite deliveries.","why":"Distributors selling bulky goods to trade buyers can see how dedicated last-mile networks become a competitive edge over price alone."},
-  {"title":"How Brooks Running is using supplier data to address human rights risks","url":"https://www.supplychaindive.com/news/how-brooks-running-is-using-supplier-data-to-address-human-rights-risks/875090/","source":"Supply Chain Dive","date":"2026-11-19","summary":"The footwear brand runs a yearly simulated customs detention with its suppliers to test how well it can trace materials and prove compliance.","why":"Importers exposed to forced-labor enforcement can borrow the drill to find documentation gaps before a real shipment is held at the border."},
-  {"title":"Oil Traders in Talks With QatarEnergy for Long-Term Supplies","url":"https://gcaptain.com/oil-traders-in-talks-with-qatarenergy-for-long-term-supplies/","source":"gCaptain","date":"2026-11-19","summary":"Large commodity trading houses are negotiating term contracts for more Qatari crude after playing a big role in moving Gulf oil during the Iran-U.S. conflict.","why":"Traders locking in long-term Gulf volumes suggests they expect the region's supply risk to persist, which keeps energy-linked freight costs volatile."},
-  {"title":"U.S. Holds Historic Deep-Sea Mining Lease Sale","url":"https://gcaptain.com/u-s-holds-historic-deep-sea-mining-lease-sale/","source":"gCaptain","date":"2026-11-19","summary":"The first U.S. auction of offshore critical-mineral leases drew about $6 million in winning bids across more than 31.5 million acres of seabed.","why":"Low bids show seabed minerals are a long-term bet, so buyers of battery and electronics metals should not count on new domestic supply soon."},
-  {"title":"Rockwell Automation buys Agilox to combine AMR fleets","url":"https://www.dcvelocity.com/rockwell-automation-buys-agilox-to-combine-amr-fleets","source":"DC Velocity","date":"2026-11-19","summary":"Rockwell is acquiring Austrian autonomous forklift maker Agilox to pair its pallet-moving robots with Rockwell's existing OTTO mobile robots.","why":"Warehouse operators evaluating automation may soon get mixed robot fleets from one vendor, simplifying integration but increasing supplier lock-in."},
-  {"title":"Can Humanoid Robots Earn Their Keep on the Factory Floor?","url":"https://www.supplychainbrain.com/technology/robotics/article/16541973/can-humanoid-robots-earn-their-keep-on-the-factory-floor","source":"SupplyChainBrain","date":"2026-11-19","summary":"Analysts expect very few companies to move humanoid robot pilots into real production before 2028, with only around 7,000 sold last year compared with hundreds of thousands of conventional industrial robots.","why":"Operations leaders should prioritize proven arms and mobile robots for near-term labor gaps and treat humanoids as an experiment, not a plan."},
-  {"title":"Jim Beam won't resume production at flagship distillery next year","url":"https://www.supplychaindive.com/news/jim-beam-wont-resume-production-at-flagship-distillery-next-year/875019/","source":"Supply Chain Dive","date":"2026-11-18","summary":"Suntory is shifting Jim Beam output to a different Kentucky site as demand weakens for lower-priced spirits.","why":"Suppliers of grain, barrels and packaging to the spirits industry should prepare for lower volumes and consolidated production footprints."},
-  {"title":"China Oilfield Services Orders 59 Offshore Vessels in $1.6 Billion Shipbuilding Deal","url":"https://gcaptain.com/china-oilfield-services-orders-59-offshore-vessels-in-1-6-billion-shipbuilding-deal/","source":"gCaptain","date":"2026-11-18","summary":"COSL has contracted three Chinese yards to build 59 offshore support vessels for about $1.64 billion.","why":"Large domestic orders tighten Chinese shipyard capacity, which can push up newbuild prices and delivery times for other buyers."}
+  {
+   "title": "Walmart's sub-30-minute delivery volume surges in Q3",
+   "url": "https://www.supplychaindive.com/news/walmarts-sub-30-minute-delivery-volume-surges-in-q3/875339/",
+   "source": "Supply Chain Dive",
+   "date": "2026-11-20",
+   "summary": "Walmart's ultra-fast deliveries grew sharply last quarter, and management says quicker in-store picking could shorten delivery windows even more.",
+   "why": "Suppliers selling through Walmart should plan for smaller, more frequent store replenishment as fast delivery leans harder on store inventory accuracy."
+  },
+  {
+   "title": "Nvidia gets more supplier capacity to meet AI demand",
+   "url": "https://www.supplychaindive.com/news/nvidia-gets-more-supplier-capacity-to-meet-ai-demand/875238/",
+   "source": "Supply Chain Dive",
+   "date": "2026-11-20",
+   "summary": "Nvidia has lined up additional production agreements with suppliers, its second round of capacity deals in about a month, to keep pace with AI chip orders.",
+   "why": "Buyers of other semiconductors and server components may face longer lead times as AI demand absorbs foundry and packaging capacity."
+  },
+  {
+   "title": "Cal-Maine halts egg production at Florida plant after bird flu outbreak",
+   "url": "https://www.supplychaindive.com/news/cal-maine-halts-egg-production-at-florida-plant-after-bird-flu-outbreak/875316/",
+   "source": "Supply Chain Dive",
+   "date": "2026-11-20",
+   "summary": "An avian flu outbreak has shut production at one of Cal-Maine's Florida egg facilities at a time when the market was already oversupplied and prices were falling.",
+   "why": "Food buyers should watch regional egg availability, though the current glut makes a sharp national price spike less likely in the near term."
+  },
+  {
+   "title": "Target boosts on-shelf availability, aided by stronger tech",
+   "url": "https://www.supplychaindive.com/news/target-boosts-on-shelf-availability-aided-by-stronger-tech/875117/",
+   "source": "Supply Chain Dive",
+   "date": "2026-11-20",
+   "summary": "Target credits AI and data-science tools with speeding up its inventory decisions and lifting how often products are actually on the shelf.",
+   "why": "Vendors to big-box retailers should expect tighter, data-driven order patterns and stricter in-stock performance targets."
+  },
+  {
+   "title": "More Than 110 Trade Groups Urge Deal as LA-Long Beach Port Strike Deadline Nears",
+   "url": "https://gcaptain.com/more-than-110-trade-groups-urge-deal-as-la-long-beach-port-strike-deadline-nears/",
+   "source": "gCaptain",
+   "date": "2026-11-20",
+   "summary": "A coalition of over 110 U.S. industry associations is pressing port employers and the union to settle before a possible strike at Los Angeles and Long Beach.",
+   "why": "Importers routing through San Pedro Bay should build contingency plans now, such as alternate ports or pulling shipments forward, in case talks fail."
+  },
+  {
+   "title": "Iran War Oil Premium Evaporates as Global Crude Supplies Surge",
+   "url": "https://gcaptain.com/iran-war-oil-premium-evaporates-as-global-crude-supplies-surge/",
+   "source": "gCaptain",
+   "date": "2026-11-20",
+   "summary": "Prices for U.S. sour crude have dropped steeply as extra barrels arrive from Venezuela, Canada and the Middle East, erasing much of the conflict-driven premium.",
+   "why": "Easing crude prices could start to pull diesel and fuel surcharges lower over the coming weeks, so shippers should check that carrier surcharges follow."
+  },
+  {
+   "title": "Houthis Order Ships to Leave Saudi Red Sea Ports After Hodeidah Airstrikes",
+   "url": "https://gcaptain.com/houthis-order-ships-to-leave-saudi-red-sea-ports-after-hodeidah-airstrikes/",
+   "source": "gCaptain",
+   "date": "2026-11-20",
+   "summary": "After coalition airstrikes on Hodeidah, the Houthis told vessels to leave Saudi Red Sea ports and warned airlines away from Saudi airspace.",
+   "why": "Red Sea routings face fresh risk, so cargo bound for Saudi ports or the Suez route may see new delays, diversions and war-risk surcharges."
+  },
+  {
+   "title": "US Treasury Presses Singapore and Malaysia on Iran Sanctions Compliance",
+   "url": "https://gcaptain.com/us-treasury-presses-singapore-and-malaysia-on-iran-sanctions-compliance/",
+   "source": "gCaptain",
+   "date": "2026-11-20",
+   "summary": "U.S. Treasury officials met with authorities in Singapore and Malaysia to warn them of consequences if Iran-linked oil trades are not curbed.",
+   "why": "Companies buying fuel or chartering tankers in Southeast Asian hubs should tighten counterparty screening to avoid sanctions exposure."
+  },
+  {
+   "title": "Walmart Warns of Fuel Cost Pressure, Lifts Annual Targets Ahead of Holidays",
+   "url": "https://www.supplychainbrain.com/industries/e-commerce-omni-channel/article/16542243/walmart-warns-of-fuel-cost-pressure-lifts-annual-targets-ahead-of-holidays",
+   "source": "SupplyChainBrain",
+   "date": "2026-11-20",
+   "summary": "Walmart raised its full-year sales and earnings outlook but said higher diesel and transport costs have added roughly $2 billion in expenses.",
+   "why": "If the largest U.S. retailer is feeling freight costs this much, suppliers should expect pressure to absorb more logistics charges in negotiations."
+  },
+  {
+   "title": "Geodis: U.S. Q3 delivery costs rose three times faster than inflation",
+   "url": "https://www.dcvelocity.com/transportation/trucking/last-mile/geodis-u-s-q3-delivery-costs-rose-three-times-faster-than-inflation",
+   "source": "DC Velocity",
+   "date": "2026-11-21",
+   "summary": "Geodis' final-mile index shows U.S. delivery costs climbed about 10.5% year over year in the third quarter, roughly triple the pace of consumer inflation.",
+   "why": "Shippers should budget for higher last-mile rates into 2027 and consider consolidating orders or renegotiating zones to offset the increase."
+  },
+  {
+   "title": "NRF: number of Thanksgiving weekend shoppers to drop",
+   "url": "https://www.dcvelocity.com/tech-infrastructure/e-commerce/nrf-number-of-thanksgiving-weekend-shoppers-to-drop-in-2027",
+   "source": "DC Velocity",
+   "date": "2026-11-21",
+   "summary": "The National Retail Federation expects about 182.7 million people to shop over Thanksgiving weekend, a few million fewer than last year.",
+   "why": "A softer holiday weekend raises the risk of excess inventory, so buyers should keep post-holiday replenishment orders flexible."
+  },
+  {
+   "title": "FedEx and three finance firms complete $8.5 billion buyout of Polish parcel company",
+   "url": "https://www.dcvelocity.com/transportation/trucking/last-mile/fedex-and-three-finance-firms-complete-8-5-billion-buyout-of-polish-parcel-company",
+   "source": "DC Velocity",
+   "date": "2026-11-21",
+   "summary": "A consortium that includes FedEx has closed its $8.5 billion purchase of InPost, taking the Polish parcel-locker network private.",
+   "why": "Cross-border e-commerce sellers into Europe may gain tighter FedEx–locker integration, but should watch for pricing changes under new ownership."
+  },
+  {
+   "title": "Project44 survey: shoppers care more about on-time delivery than speed",
+   "url": "https://www.dcvelocity.com/tech-infrastructure/e-commerce/project44-survey-shoppers-care-more-about-on-time-delivery-than-speed",
+   "source": "DC Velocity",
+   "date": "2026-11-19",
+   "summary": "A Project44 survey finds most consumers rank arriving on the promised date as very important, while slow shipping is their smallest holiday concern.",
+   "why": "Retailers and suppliers can save money by promising realistic delivery dates and hitting them rather than paying for premium speed."
+  },
+  {
+   "title": "Another Tanker Hit in Strait of Hormuz as Maritime Attacks Surge Worldwide",
+   "url": "https://gcaptain.com/another-tanker-hit-in-strait-of-hormuz-as-maritime-attacks-surge-worldwide/",
+   "source": "gCaptain",
+   "date": "2026-11-20",
+   "summary": "A tanker caught fire after being struck by a projectile in the Strait of Hormuz, the latest in a run of attacks on merchant ships.",
+   "why": "Energy and petrochemical buyers dependent on Gulf supply should keep safety stock and expect insurance costs on the route to stay elevated."
+  },
+  {
+   "title": "Meta strikes deals to boost low-carbon materials production",
+   "url": "https://www.supplychaindive.com/news/meta-strikes-deals-to-boost-low-carbon-materials-production/875095/",
+   "source": "Supply Chain Dive",
+   "date": "2026-11-19",
+   "summary": "Meta signed multiyear purchase agreements for lower-carbon concrete, plastics and steel to cut emissions tied to building its data centers.",
+   "why": "Large offtake deals like this can tighten supply of green building materials, so construction buyers seeking them should lock in volumes early."
+  }
  ],
  "market": [
-  {"id":"GASDESW","name":"US diesel retail price (weekly)","unit":"$/gal","points":[["2026-08-24",5.652],["2026-08-31",5.599],["2026-09-07",5.967],["2026-09-14",6.285],["2026-09-21",6.529],["2026-09-28",6.382],["2026-10-05",6.199],["2026-10-12",6.179],["2026-10-19",6.276],["2026-10-26",6.352],["2026-11-02",6.292],["2026-11-09",6.127]]},
-  {"id":"TSIFRGHT","name":"Freight Transportation Services Index","unit":"index","points":[["2025-09-01",138.1],["2025-10-01",136.8],["2025-11-01",137.3],["2025-12-01",137.0],["2026-01-01",136.3],["2026-02-01",138.3],["2026-03-01",139.4],["2026-04-01",138.2],["2026-05-01",135.4],["2026-06-01",136.6],["2026-07-01",134.9],["2026-08-01",134.4]]},
-  {"id":"FRGSHPUSM649NCIS","name":"Cass Freight Index: Shipments","unit":"index","points":[["2025-11-01",1.00382],["2025-12-01",0.93191],["2026-01-01",0.886],["2026-02-01",0.978],["2026-03-01",1.007],["2026-04-01",1.011],["2026-05-01",1.041],["2026-06-01",1.009],["2026-07-01",0.983],["2026-08-01",1.038],["2026-09-01",1.062],["2026-10-01",1.056]]},
-  {"id":"PCU483111483111","name":"Ocean freight producer prices (deep sea PPI)","unit":"index","points":[["2025-11-01",402.725],["2025-12-01",415.302],["2026-01-01",445.272],["2026-02-01",441.81],["2026-03-01",451.353],["2026-04-01",462.08],["2026-05-01",475.059],["2026-06-01",504.328],["2026-07-01",521.184],["2026-08-01",544.261],["2026-09-01",573.44],["2026-10-01",572.968]]}
+  {
+   "id": "GASDESW",
+   "name": "US diesel retail price (weekly)",
+   "unit": "$/gal",
+   "points": [
+    [
+     "2026-08-31",
+     5.599
+    ],
+    [
+     "2026-09-07",
+     5.967
+    ],
+    [
+     "2026-09-14",
+     6.285
+    ],
+    [
+     "2026-09-21",
+     6.529
+    ],
+    [
+     "2026-09-28",
+     6.382
+    ],
+    [
+     "2026-10-05",
+     6.199
+    ],
+    [
+     "2026-10-12",
+     6.179
+    ],
+    [
+     "2026-10-19",
+     6.276
+    ],
+    [
+     "2026-10-26",
+     6.352
+    ],
+    [
+     "2026-11-02",
+     6.292
+    ],
+    [
+     "2026-11-09",
+     6.127
+    ],
+    [
+     "2026-11-16",
+     5.937
+    ]
+   ]
+  },
+  {
+   "id": "TSIFRGHT",
+   "name": "Freight Transportation Services Index",
+   "unit": "index",
+   "points": [
+    [
+     "2025-09-01",
+     138.1
+    ],
+    [
+     "2025-10-01",
+     136.8
+    ],
+    [
+     "2025-11-01",
+     137.3
+    ],
+    [
+     "2025-12-01",
+     137.0
+    ],
+    [
+     "2026-01-01",
+     136.3
+    ],
+    [
+     "2026-02-01",
+     138.3
+    ],
+    [
+     "2026-03-01",
+     139.4
+    ],
+    [
+     "2026-04-01",
+     138.2
+    ],
+    [
+     "2026-05-01",
+     135.4
+    ],
+    [
+     "2026-06-01",
+     136.6
+    ],
+    [
+     "2026-07-01",
+     134.9
+    ],
+    [
+     "2026-08-01",
+     134.4
+    ]
+   ]
+  },
+  {
+   "id": "FRGSHPUSM649NCIS",
+   "name": "Cass Freight Index: Shipments",
+   "unit": "index",
+   "points": [
+    [
+     "2025-11-01",
+     1.00382
+    ],
+    [
+     "2025-12-01",
+     0.93191
+    ],
+    [
+     "2026-01-01",
+     0.886
+    ],
+    [
+     "2026-02-01",
+     0.978
+    ],
+    [
+     "2026-03-01",
+     1.007
+    ],
+    [
+     "2026-04-01",
+     1.011
+    ],
+    [
+     "2026-05-01",
+     1.041
+    ],
+    [
+     "2026-06-01",
+     1.009
+    ],
+    [
+     "2026-07-01",
+     0.983
+    ],
+    [
+     "2026-08-01",
+     1.038
+    ],
+    [
+     "2026-09-01",
+     1.062
+    ],
+    [
+     "2026-10-01",
+     1.056
+    ]
+   ]
+  },
+  {
+   "id": "PCU483111483111",
+   "name": "Ocean freight producer prices (deep sea PPI)",
+   "unit": "index",
+   "points": [
+    [
+     "2025-11-01",
+     402.725
+    ],
+    [
+     "2025-12-01",
+     415.302
+    ],
+    [
+     "2026-01-01",
+     445.272
+    ],
+    [
+     "2026-02-01",
+     441.81
+    ],
+    [
+     "2026-03-01",
+     451.353
+    ],
+    [
+     "2026-04-01",
+     462.08
+    ],
+    [
+     "2026-05-01",
+     475.059
+    ],
+    [
+     "2026-06-01",
+     504.328
+    ],
+    [
+     "2026-07-01",
+     521.184
+    ],
+    [
+     "2026-08-01",
+     544.261
+    ],
+    [
+     "2026-09-01",
+     573.44
+    ],
+    [
+     "2026-10-01",
+     572.968
+    ]
+   ]
+  }
  ],
- "fx": {"base":"USD","date":"2026-11-20","rates":{"CAD":1.4307,"CNY":6.6777,"EUR":0.90992,"GBP":0.76192,"INR":92.68,"JPY":158.64,"MXN":19.0673}}
+ "fx": {
+  "base": "USD",
+  "date": "2026-11-20",
+  "rates": {
+   "CAD": 1.4307,
+   "CNY": 6.6777,
+   "EUR": 0.90992,
+   "GBP": 0.76192,
+   "INR": 92.68,
+   "JPY": 158.64,
+   "MXN": 19.0673
+  }
+ }
 }
