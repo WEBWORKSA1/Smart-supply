@@ -9,7 +9,7 @@ Static, dependency-free website (HTML + CSS + vanilla JS) built for **lead gener
 | Area | Pages |
 |---|---|
 | Lead generation | `get-quotes.html` (4-step RFQ wizard, freight/3PL quote, software advisor), `list-your-company.html`, exit-intent lead magnet, newsletters |
-| Directories | `suppliers.html` (44 real companies, filters + shortlist), `software.html` |
+| Directories | `suppliers.html` (44 established companies described from public information, filters + shortlist; company applications are listed only after the checks in `AGENT.md`), `software.html` |
 | Daily (auto) | `news.html` daily brief, `markets.html` market pulse + FX, home-page ticker, tip/term/tool of the day, closures countdown — see `AGENT.md` |
 | Tools | `tools.html` — EOQ, safety stock, reorder point, landed cost, CBM, chargeable weight, turnover, CO₂, supplier scorecard, live currency converter |
 | Content / SEO | `guides.html` + 14 guides in `/guides`, `glossary.html` (85+ terms), sitemap, schema.org |
