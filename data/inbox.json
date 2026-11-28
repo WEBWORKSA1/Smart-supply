@@ -1,24 +1,319 @@
 {
-"news": [
-{"title": "Déjà vu in Miami as FedEx MD-11 freighter overshoots runway", "url": "https://www.freightwaves.com/news/deja-vu-in-miami-as-fedex-md-11-freighter-overshoots-runway", "source": "FreightWaves", "date": "2026-11-26", "summary": "A FedEx MD-11 cargo jet ran off the end of a Miami International runway in heavy rain, prompting a brief FAA ground stop but no injuries.", "why": "Miami is a key gateway for Latin American air cargo, so shippers with time-critical freight there should allow for short holiday-week delays and ask about MD-11 fleet availability."},
-{"title": "5 non-domiciled drivers want CDLs reinstated as battle separately moves through courts", "url": "https://www.freightwaves.com/news/5-non-domiciled-drivers-want-cdls-reinstated-as-battle-separately-moves-through-courts", "source": "FreightWaves", "date": "2026-11-26", "summary": "Five truck drivers who lost commercial licenses under the federal non-domiciled driver rule have petitioned for reinstatement while a court challenge to the rule is still pending.", "why": "The rule has pulled drivers out of the market, so the court outcome could loosen or tighten truckload capacity and spot rates heading into 2027 contract season."},
-{"title": "US readies tariffs over manufacturing capacity, production concerns", "url": "https://www.supplychaindive.com/news/us-readies-tariffs-over-manufacturing-capacity-production-concerns/875639/", "source": "Supply Chain Dive", "date": "2026-11-25", "summary": "Washington is preparing tariffs of roughly 15% to 35% on goods from China, the EU and a dozen other partners after a Section 301 investigation into excess manufacturing capacity.", "why": "Importers should model landed costs at the top of that range now and review country-of-origin options before the rates are finalized."},
-{"title": "Molson Coors, Primo Brands use fuel hedging to tackle logistics costs", "url": "https://www.supplychaindive.com/news/molson-coors-primo-brands-use-fuel-hedging-to-tackle-logistics-costs/875552/", "source": "Supply Chain Dive", "date": "2026-11-25", "summary": "Two beverage makers explain how they lock in fuel prices to steady transport budgets, while experts warn hedging can be expensive and complex to manage.", "why": "With diesel swinging sharply this year, mid-size shippers can ask carriers for fixed or capped fuel surcharges as a simpler alternative to a formal hedge program."},
-{"title": "EU to Temporarily Cap Hybrid Vehicle Imports from China", "url": "https://www.supplychainbrain.com/industries/automotive/article/16542694/eu-to-temporarily-cap-hybrid-vehicle-imports-from-china", "source": "SupplyChainBrain", "date": "2026-11-24", "summary": "Starting December 1 the EU will apply 200-day quotas on hybrid car imports, limiting Chinese-built hybrids to about 191,000 units, roughly half of expected volume, during an investigation.", "why": "Distributors of Chinese vehicles and parts for Europe should expect allocation fights and price moves, and may see diverted volume push into other markets."},
-{"title": "Most Large Fuel Tankers Now Ship 'Dirty' Crude, Upending Trading", "url": "https://gcaptain.com/most-large-fuel-tankers-now-ship-dirty-crude-upending-trading/", "source": "gCaptain", "date": "2026-11-25", "summary": "A record three-quarters of big product tankers have switched to hauling crude because it pays better, leaving fewer ships to move refined fuels.", "why": "Tight product-tanker supply keeps diesel and jet fuel freight costs high, which flows straight into carrier fuel surcharges for shippers."},
-{"title": "Red Sea and Indian Ocean Nations Advance Plans for Combined Maritime Security Force", "url": "https://gcaptain.com/red-sea-and-indian-ocean-nations-advance-plans-for-combined-maritime-security-force/", "source": "gCaptain", "date": "2026-11-25", "summary": "Coastal states around the Red Sea and western Indian Ocean are moving toward a joint naval task force to fight piracy and protect merchant traffic.", "why": "A regional force could eventually help Suez routings return, but importers should keep Cape of Good Hope transit times in their planning until it is operating."},
-{"title": "India's State Shipping Giant Seeks Up to 22 New Ships in Major Domestic Shipbuilding Push", "url": "https://gcaptain.com/indias-state-shipping-giant-seeks-up-to-22-new-ships-in-major-domestic-shipbuilding-push/", "source": "gCaptain", "date": "2026-11-24", "summary": "The state-owned Shipping Corporation of India plans to add up to 22 vessels in a multibillion-dollar expansion tied to building more ships at home.", "why": "More Indian-flagged tonnage over the next few years could add capacity and pricing options on India trade lanes for buyers sourcing from the subcontinent."},
-{"title": "Tech funding will rise in 2027, but AI investors will demand measurable savings", "url": "https://www.dcvelocity.com/technology/artificial-intelligence/tech-funding-will-rise-in-2027-but-ai-investors-will-demand-measurable-savings", "source": "DC Velocity", "date": "2026-11-25", "summary": "Logistics tech funding hit $8.4 billion by mid-August and is on pace to beat 2025, while deal counts for logistics-tech acquisitions jumped about 74% year over year.", "why": "Expect vendors to pitch hard on proven ROI next year, so buyers evaluating AI tools should insist on pilots with measurable cost or service targets."},
-{"title": "Dual-fuel fleet set to meet 20% of liner energy demand by 2030", "url": "https://www.dcvelocity.com/supply-chain/other-services/green-logistics/dual-fuel-fleet-set-to-meet-20-of-liner-energy-demand-by-2030", "source": "DC Velocity", "date": "2026-11-25", "summary": "The World Shipping Council projects that ships able to burn renewable fuels will cover over a fifth of container-line energy needs around 2030, and it wants binding global rules to close the cost gap.", "why": "Green-fuel surcharges are likely to become a standard line on ocean invoices, so importers should ask carriers how they will price low-emission capacity."},
-{"title": "Report: data center construction drives logistics services demand", "url": "https://www.dcvelocity.com/technology/artificial-intelligence/report-data-center-construction-drives-logistics-demand", "source": "DC Velocity", "date": "2026-11-24", "summary": "Interact Analysis finds the data center building boom is lifting demand for warehousing and material-handling automation, especially spare-parts and staging sites.", "why": "Electrical and cooling equipment buyers may face longer lead times and pricier warehouse space near major data center clusters."},
-{"title": "USPS sees rising threat of holiday scams", "url": "https://www.dcvelocity.com/supply-chain/other-services/supply-chain-security/usps-sees-rising-threat-of-holiday-scams", "source": "DC Velocity", "date": "2026-11-24", "summary": "The Postal Service is warning about fake postage, brushing, impostor and mail-theft schemes, citing a survey in which most US consumers reported a holiday fraud attempt.", "why": "Ecommerce sellers should warn customers about fake delivery texts and check that discounted postage sources are legitimate to avoid seized parcels."},
-{"title": "Automating your loading docks just got easier", "url": "https://www.dcvelocity.com/material-handling/automating-your-loading-docks-just-got-easier", "source": "DC Velocity", "date": "2026-11-25", "summary": "New robots for truck and container unloading are reaching real deployments, with one 3PL reporting robots clearing four to five containers per shift versus two to three by hand.", "why": "Importers paying high drayage detention or dock labor costs can ask their 3PLs whether automated unloading is on the roadmap and how it affects handling rates."}
-],
-"market": [
-{"id": "GASDESW", "name": "US diesel retail price (weekly)", "unit": "$/gal", "points": [["2026-09-07", 5.967], ["2026-09-14", 6.285], ["2026-09-21", 6.529], ["2026-09-28", 6.382], ["2026-10-05", 6.199], ["2026-10-12", 6.179], ["2026-10-19", 6.276], ["2026-10-26", 6.352], ["2026-11-02", 6.292], ["2026-11-09", 6.127], ["2026-11-16", 5.937], ["2026-11-23", 5.695]]},
-{"id": "TSIFRGHT", "name": "Freight Transportation Services Index", "unit": "index", "points": [["2025-09-01", 138.1], ["2025-10-01", 136.8], ["2025-11-01", 137.3], ["2025-12-01", 137.0], ["2026-01-01", 136.3], ["2026-02-01", 138.3], ["2026-03-01", 139.4], ["2026-04-01", 138.2], ["2026-05-01", 135.4], ["2026-06-01", 136.6], ["2026-07-01", 134.9], ["2026-08-01", 134.4]]},
-{"id": "FRGSHPUSM649NCIS", "name": "Cass Freight Index: Shipments", "unit": "index", "points": [["2025-11-01", 1.00382], ["2025-12-01", 0.93191], ["2026-01-01", 0.886], ["2026-02-01", 0.978], ["2026-03-01", 1.007], ["2026-04-01", 1.011], ["2026-05-01", 1.041], ["2026-06-01", 1.009], ["2026-07-01", 0.983], ["2026-08-01", 1.038], ["2026-09-01", 1.062], ["2026-10-01", 1.056]]},
-{"id": "PCU483111483111", "name": "Ocean freight producer prices (deep sea PPI)", "unit": "index", "points": [["2025-11-01", 402.725], ["2025-12-01", 415.302], ["2026-01-01", 445.272], ["2026-02-01", 441.81], ["2026-03-01", 451.353], ["2026-04-01", 462.08], ["2026-05-01", 475.059], ["2026-06-01", 504.328], ["2026-07-01", 521.184], ["2026-08-01", 544.261], ["2026-09-01", 573.44], ["2026-10-01", 572.968]]}
-],
-"fx": {"base": "USD", "date": "2026-11-26", "rates": {"CAD": 1.423, "CNY": 6.6602, "EUR": 0.91116, "GBP": 0.76314, "INR": 92.45, "JPY": 159.26, "MXN": 19.6711}}
+ "news": [
+  {
+   "title": "Hormuz Tanker Traffic Rises This Month Even as Attacks Increase",
+   "url": "https://gcaptain.com/hormuz-tanker-traffic-rises-this-month-even-as-attacks-increase/",
+   "source": "gCaptain",
+   "date": "2026-11-26",
+   "summary": "Vortexa tracking shows more tankers crossed the Strait of Hormuz in November than the month before, even though strikes on ships in the area also climbed.",
+   "why": "Rising transits despite more attacks mean war-risk premiums and fuel surcharges are likely to stay high, so importers should keep Gulf-linked freight quotes short-dated."
+  },
+  {
+   "title": "Crew Member Dies After Diesel Tanker Capsizes Off Ibiza, No Pollution So Far",
+   "url": "https://gcaptain.com/crew-member-dies-after-diesel-tanker-capsizes-off-ibiza-no-pollution-so-far/",
+   "source": "gCaptain",
+   "date": "2026-11-26",
+   "summary": "A small diesel tanker overturned and partly sank near Ibiza, killing at least one crew member, while Spanish officials say no fuel leak has been detected yet.",
+   "why": "The incident is local, but it is a reminder for buyers of Balearic and western Mediterranean fuel deliveries to confirm backup supply arrangements during the salvage."
+  },
+  {
+   "title": "IMO Sounds Alarm Over Shortage of Training Berths for Future Seafarers",
+   "url": "https://gcaptain.com/imo-sounds-alarm-over-shortage-of-training-berths-for-future-seafarers/",
+   "source": "gCaptain",
+   "date": "2026-11-25",
+   "summary": "The International Maritime Organization is pressing shipowners to offer more onboard places for cadets, warning that too few berths are holding back the next generation of officers.",
+   "why": "A thinner pipeline of qualified crews pushes up ship operating costs over time, which eventually feeds into the ocean rates importers pay."
+  },
+  {
+   "title": "Italy Rebukes Ukraine Over Attacks on Russian Ships in Libya",
+   "url": "https://gcaptain.com/italy-rebukes-ukraine-over-attacks-on-russian-ships-in-libya/",
+   "source": "gCaptain",
+   "date": "2026-11-25",
+   "summary": "Italian Foreign Minister Antonio Tajani criticised Kyiv for striking Russian vessels in Libyan waters and urged it not to carry the conflict into new regions.",
+   "why": "Strikes spreading into the central Mediterranean could widen war-risk insurance zones, so shippers routing via Libyan or nearby ports should check cover terms."
+  },
+  {
+   "title": "PETA alleges animal abuse in PepsiCo's supply chain",
+   "url": "https://www.supplychaindive.com/news/peta-alleges-animal-abuse-in-pepsicos-supply-chain/875654/",
+   "source": "Supply Chain Dive",
+   "date": "2026-11-25",
+   "summary": "PETA filed a shareholder proposal on behalf of two PepsiCo investors claiming the company's sugar sourcing exposes it to animal-welfare risks.",
+   "why": "Activist pressure is moving deeper into commodity supply chains, so food and beverage buyers should be ready to document how upstream ingredient suppliers operate."
+  },
+  {
+   "title": "EU Decision on Biocide Anti-Foulings Prompts Objection from Manufacturer",
+   "url": "https://www.supplychainbrain.com/general-scm/sustainability-corporate-social-responsibility/article/16543062/eu-decision-on-biocide-antifoulings-prompts-objection-from-manufacturer",
+   "source": "SupplyChainBrain",
+   "date": "2026-11-25",
+   "summary": "Swedish firm I-Tech objected after EU member states voted against renewing approval of its anti-fouling biocide Selektope, arguing the move harms European shipyards and slows emissions cuts.",
+   "why": "Buyers of marine coatings and shipyard services in Europe should check whether their current hull-coating products rely on biocides facing non-renewal and plan substitutes."
+  },
+  {
+   "title": "Frazier to build $20 million rack factory in Texas",
+   "url": "https://www.dcvelocity.com/material-handling/storage/racking/frazier-to-build-20-million-rack-factory-in-texas",
+   "source": "DC Velocity",
+   "date": "2026-11-25",
+   "summary": "Frazier Industrial is investing $20 million in a semi-automated pallet-rack plant in Grand Prairie, Texas, due to open in March 2027 with about 130 jobs.",
+   "why": "New domestic rack capacity in the Southwest could shorten lead times and cut freight costs for warehouse projects in Texas and nearby states from 2027."
+  },
+  {
+   "title": "Lithium-ion recycling market to reach $64 billion by 2047",
+   "url": "https://www.dcvelocity.com/supply-chain/other-services/green-logistics/lithium-ion-recycling-market-to-reach-64-billion-by-2047",
+   "source": "DC Velocity",
+   "date": "2026-11-25",
+   "summary": "Research firm IDTechEx projects battery recycling will become a $64 billion market by 2047 as EV packs reach end of life, after capacity rose 77% between 2024 and 2026.",
+   "why": "Fast-growing recycling capacity gives battery and electronics buyers a growing secondary source of lithium, nickel and cobalt to hedge against mined-supply shocks."
+  },
+  {
+   "title": "Déjà vu in Miami as FedEx MD-11 freighter overshoots runway",
+   "url": "https://www.freightwaves.com/news/deja-vu-in-miami-as-fedex-md-11-freighter-overshoots-runway",
+   "source": "FreightWaves",
+   "date": "2026-11-26",
+   "summary": "A FedEx MD-11 cargo jet ran off the end of a Miami International runway in heavy rain, prompting a brief FAA ground stop but no injuries.",
+   "why": "Miami is a key gateway for Latin American air cargo, so shippers with time-critical freight there should allow for short holiday-week delays and ask about MD-11 fleet availability."
+  },
+  {
+   "title": "5 non-domiciled drivers want CDLs reinstated as battle separately moves through courts",
+   "url": "https://www.freightwaves.com/news/5-non-domiciled-drivers-want-cdls-reinstated-as-battle-separately-moves-through-courts",
+   "source": "FreightWaves",
+   "date": "2026-11-26",
+   "summary": "Five truck drivers who lost commercial licenses under the federal non-domiciled driver rule have petitioned for reinstatement while a court challenge to the rule is still pending.",
+   "why": "The rule has pulled drivers out of the market, so the court outcome could loosen or tighten truckload capacity and spot rates heading into 2027 contract season."
+  }
+ ],
+ "market": [
+  {
+   "id": "GASDESW",
+   "name": "US diesel retail price (weekly)",
+   "unit": "$/gal",
+   "points": [
+    [
+     "2026-09-07",
+     5.967
+    ],
+    [
+     "2026-09-14",
+     6.285
+    ],
+    [
+     "2026-09-21",
+     6.529
+    ],
+    [
+     "2026-09-28",
+     6.382
+    ],
+    [
+     "2026-10-05",
+     6.199
+    ],
+    [
+     "2026-10-12",
+     6.179
+    ],
+    [
+     "2026-10-19",
+     6.276
+    ],
+    [
+     "2026-10-26",
+     6.352
+    ],
+    [
+     "2026-11-02",
+     6.292
+    ],
+    [
+     "2026-11-09",
+     6.127
+    ],
+    [
+     "2026-11-16",
+     5.937
+    ],
+    [
+     "2026-11-23",
+     5.695
+    ]
+   ]
+  },
+  {
+   "id": "TSIFRGHT",
+   "name": "Freight Transportation Services Index",
+   "unit": "index",
+   "points": [
+    [
+     "2025-09-01",
+     138.1
+    ],
+    [
+     "2025-10-01",
+     136.8
+    ],
+    [
+     "2025-11-01",
+     137.3
+    ],
+    [
+     "2025-12-01",
+     137.0
+    ],
+    [
+     "2026-01-01",
+     136.3
+    ],
+    [
+     "2026-02-01",
+     138.3
+    ],
+    [
+     "2026-03-01",
+     139.4
+    ],
+    [
+     "2026-04-01",
+     138.2
+    ],
+    [
+     "2026-05-01",
+     135.4
+    ],
+    [
+     "2026-06-01",
+     136.6
+    ],
+    [
+     "2026-07-01",
+     134.9
+    ],
+    [
+     "2026-08-01",
+     134.4
+    ]
+   ]
+  },
+  {
+   "id": "FRGSHPUSM649NCIS",
+   "name": "Cass Freight Index: Shipments",
+   "unit": "index",
+   "points": [
+    [
+     "2025-11-01",
+     1.00382
+    ],
+    [
+     "2025-12-01",
+     0.93191
+    ],
+    [
+     "2026-01-01",
+     0.886
+    ],
+    [
+     "2026-02-01",
+     0.978
+    ],
+    [
+     "2026-03-01",
+     1.007
+    ],
+    [
+     "2026-04-01",
+     1.011
+    ],
+    [
+     "2026-05-01",
+     1.041
+    ],
+    [
+     "2026-06-01",
+     1.009
+    ],
+    [
+     "2026-07-01",
+     0.983
+    ],
+    [
+     "2026-08-01",
+     1.038
+    ],
+    [
+     "2026-09-01",
+     1.062
+    ],
+    [
+     "2026-10-01",
+     1.056
+    ]
+   ]
+  },
+  {
+   "id": "PCU483111483111",
+   "name": "Ocean freight producer prices (deep sea PPI)",
+   "unit": "index",
+   "points": [
+    [
+     "2025-11-01",
+     402.725
+    ],
+    [
+     "2025-12-01",
+     415.302
+    ],
+    [
+     "2026-01-01",
+     445.272
+    ],
+    [
+     "2026-02-01",
+     441.81
+    ],
+    [
+     "2026-03-01",
+     451.353
+    ],
+    [
+     "2026-04-01",
+     462.08
+    ],
+    [
+     "2026-05-01",
+     475.059
+    ],
+    [
+     "2026-06-01",
+     504.328
+    ],
+    [
+     "2026-07-01",
+     521.184
+    ],
+    [
+     "2026-08-01",
+     544.261
+    ],
+    [
+     "2026-09-01",
+     573.44
+    ],
+    [
+     "2026-10-01",
+     572.968
+    ]
+   ]
+  }
+ ],
+ "fx": {
+  "base": "USD",
+  "date": "2026-11-26",
+  "rates": {
+   "CAD": 1.423,
+   "CNY": 6.6602,
+   "EUR": 0.91116,
+   "GBP": 0.76314,
+   "INR": 92.45,
+   "JPY": 159.26,
+   "MXN": 19.6711
+  }
+ }
 }
